@@ -2,8 +2,8 @@
    Design tokens
    ========================================================================== */
 :root {
-  --bg: #0a0d11;
-  --bg-alt: #12161b;
+  --bg: #06080a;
+  --bg-alt: #0d1014;
   --fg: #f2f0ec;
   --fg-muted: #9a9790;
   --accent: #7fa6c9;
@@ -36,7 +36,7 @@ body::before {
   inset: 0;
   z-index: 9999;
   pointer-events: none;
-  opacity: 0.05;
+  opacity: 0.03;
   mix-blend-mode: screen;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='320'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.45' numOctaves='2' stitchTiles='stitch'/><feGaussianBlur stdDeviation='0.6'/><feColorMatrix type='matrix' values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1.1 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
 }
@@ -49,8 +49,8 @@ body::after {
   z-index: 9998;
   pointer-events: none;
   background:
-    radial-gradient(ellipse at 50% 38%, rgba(127, 166, 201, 0.06), transparent 55%),
-    radial-gradient(ellipse at 50% 50%, transparent 45%, rgba(0, 0, 0, 0.5) 100%);
+    radial-gradient(ellipse at 50% 38%, rgba(127, 166, 201, 0.035), transparent 55%),
+    radial-gradient(ellipse at 50% 50%, transparent 55%, rgba(0, 0, 0, 0.3) 100%);
 }
 
 img { max-width: 100%; display: block; }
