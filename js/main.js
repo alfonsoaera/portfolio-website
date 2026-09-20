@@ -11,6 +11,13 @@ onScroll();
 // ==========================================================================
 const navToggle = document.getElementById('navToggle');
 const navLinks = document.getElementById('navLinks');
+const navClose = document.getElementById('navClose');
+
+function closeMobileNav() {
+  navLinks.classList.remove('open');
+  navToggle.classList.remove('open');
+  navToggle.setAttribute('aria-expanded', 'false');
+}
 
 navToggle.addEventListener('click', () => {
   const isOpen = navLinks.classList.toggle('open');
@@ -18,12 +25,10 @@ navToggle.addEventListener('click', () => {
   navToggle.setAttribute('aria-expanded', String(isOpen));
 });
 
+navClose.addEventListener('click', closeMobileNav);
+
 navLinks.querySelectorAll('a').forEach((link) => {
-  link.addEventListener('click', () => {
-    navLinks.classList.remove('open');
-    navToggle.classList.remove('open');
-    navToggle.setAttribute('aria-expanded', 'false');
-  });
+  link.addEventListener('click', closeMobileNav);
 });
 
 // ==========================================================================
@@ -118,7 +123,7 @@ document.addEventListener('keydown', (e) => {
 // ==========================================================================
 // Language toggle (Spanish default, English optional)
 // ==========================================================================
-const langToggle = document.getElementById('langToggle');
+const langOptions = document.querySelectorAll('.lang-option');
 const textNodes = document.querySelectorAll('[data-es]');
 const htmlNodes = document.querySelectorAll('[data-es-html]');
 
@@ -126,7 +131,7 @@ function setLanguage(lang) {
   document.documentElement.lang = lang;
   textNodes.forEach((el) => { el.textContent = lang === 'en' ? el.dataset.en : el.dataset.es; });
   htmlNodes.forEach((el) => { el.innerHTML = lang === 'en' ? el.dataset.enHtml : el.dataset.esHtml; });
-  langToggle.textContent = lang === 'en' ? 'ES' : 'EN';
+  langOptions.forEach((btn) => { btn.classList.toggle('active', btn.dataset.lang === lang); });
   try { localStorage.setItem('lang', lang); } catch (e) {}
 }
 
@@ -134,8 +139,8 @@ let savedLang = 'es';
 try { savedLang = localStorage.getItem('lang') || 'es'; } catch (e) {}
 setLanguage(savedLang);
 
-langToggle.addEventListener('click', () => {
-  setLanguage(document.documentElement.lang === 'en' ? 'es' : 'en');
+langOptions.forEach((btn) => {
+  btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
 });
 
 // ==========================================================================

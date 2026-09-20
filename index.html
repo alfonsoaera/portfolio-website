@@ -35,16 +35,28 @@
     <a href="#top" class="logo">
       <img src="assets/images/favicon-180.png" alt="AERA" class="logo-mark">
     </a>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#work" data-es="Trabajo" data-en="Work">Trabajo</a></li>
-      <li><a href="#reel" data-es="Reel" data-en="Reel">Reel</a></li>
-      <li><a href="#about" data-es="Sobre mí" data-en="About">Sobre mí</a></li>
-      <li><a href="#contact" data-es="Contacto" data-en="Contact">Contacto</a></li>
-      <li><button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language">EN</button></li>
-    </ul>
+
+    <div class="nav-menu">
+      <ul class="nav-links" id="navLinks">
+        <li class="nav-close-item">
+          <button class="nav-close" id="navClose" type="button" aria-label="Close menu">&times;</button>
+        </li>
+        <li><a href="#work" data-es="Trabajo" data-en="Work">Trabajo</a></li>
+        <li><a href="#reel" data-es="Reel" data-en="Reel">Reel</a></li>
+        <li><a href="#about" data-es="Sobre mí" data-en="About">Sobre mí</a></li>
+        <li><a href="#contact" data-es="Contacto" data-en="Contact">Contacto</a></li>
+      </ul>
+
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button class="lang-option" id="langEs" data-lang="es" type="button">ESP</button>
+        <span class="lang-sep" aria-hidden="true">/</span>
+        <button class="lang-option" id="langEn" data-lang="en" type="button">ENG</button>
+      </div>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </nav>
 </header>
 
