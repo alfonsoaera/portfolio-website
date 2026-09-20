@@ -52,6 +52,17 @@ assets/video/        Put a self-hosted reel file here (e.g. reel.mp4)
    ```
    Leave `data-video` empty/off to keep a plain image tile instead.
 
+   **Featured tab** — the "Destacado"/"Featured" filter shows only pieces
+   with `data-featured="true"` on their `<figure>`. Every other filter
+   (Director/Editor/Social/Motion) shows the full list for that category
+   regardless of the featured flag — a piece can be in both.
+
+   **Campaigns** — if several pieces belong to the same shoot/client
+   campaign, give each button the same `data-campaign="some-slug"` value.
+   Opening any one of them adds a "More from this campaign" row in the
+   popup linking to the others; clicking a sibling swaps the popup to that
+   piece without closing it. Leave `data-campaign` off for standalone pieces.
+
 4. **About photo** — swap the `.about-photo` placeholder div for an `<img>`
    pointing at a photo in `assets/images/`.
 

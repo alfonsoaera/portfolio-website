@@ -594,6 +594,35 @@ section { padding: 140px 0; }
 .lightbox-inner p {
   color: var(--fg-muted);
 }
+.lightbox-campaign {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+.lightbox-campaign-label {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.7rem;
+  color: var(--fg-muted);
+  margin: 0 0 12px;
+}
+.lightbox-campaign-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.lightbox-campaign-item {
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  color: var(--fg-muted);
+  transition: color var(--transition), border-color var(--transition);
+}
+.lightbox-campaign-item:hover {
+  color: var(--fg);
+  border-color: var(--fg);
+}
 .lightbox-close {
   position: absolute;
   top: 24px;

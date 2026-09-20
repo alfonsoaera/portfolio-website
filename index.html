@@ -135,7 +135,7 @@
     <h2 class="section-title reveal" data-es="El Trabajo" data-en="The Work">El Trabajo</h2>
 
     <div class="filters reveal" role="tablist" aria-label="Filter portfolio by category">
-      <button class="filter-btn active" data-filter="all" data-es="Todos" data-en="All">Todos</button>
+      <button class="filter-btn active" data-filter="featured" data-es="Destacado" data-en="Featured">Destacado</button>
       <button class="filter-btn" data-filter="director">Director</button>
       <button class="filter-btn" data-filter="editor">Editor</button>
       <button class="filter-btn" data-filter="social">Social</button>
@@ -152,13 +152,33 @@
           - a file you dropped in assets/video/, e.g. data-video="assets/video/my-edit.mp4"
         Clicking the tile will then play that video in the popup instead of showing the text label.
         Leave data-video off to keep a plain image/placeholder instead.
+
+        FEATURED tab: add data-featured="true" to a <figure> to include it in the
+        "Destacado"/"Featured" tab. Everything else only shows up under its own
+        category tab (Director/Editor/Social/Motion), not under Featured.
+
+        CAMPAIGNS: if several pieces belong to the same campaign/client shoot, give
+        each button the same data-campaign="some-slug" value (and a distinct
+        data-title). Opening any one of them shows a "More from this campaign"
+        row in the popup linking to the others — clicking a sibling swaps the
+        popup to that piece without closing it.
       -->
-      <figure class="grid-item reveal" data-category="director">
-        <button class="grid-thumb" data-title="Project Title" data-desc="Short description of this project — role, client, year." data-category="Director" data-video="">
+      <figure class="grid-item reveal" data-category="director" data-featured="true">
+        <button class="grid-thumb" data-title="Project Title A" data-desc="Short description of this project — role, client, year." data-category="Director" data-video="" data-campaign="sample-campaign">
           <span class="thumb-fallback">Director</span>
         </button>
         <figcaption>
-          <h3>Project Title</h3>
+          <h3>Project Title A</h3>
+          <span class="tag">Director</span>
+        </figcaption>
+      </figure>
+
+      <figure class="grid-item reveal" data-category="director">
+        <button class="grid-thumb" data-title="Project Title B" data-desc="Short description of this project — role, client, year." data-category="Director" data-video="" data-campaign="sample-campaign">
+          <span class="thumb-fallback">Director</span>
+        </button>
+        <figcaption>
+          <h3>Project Title B</h3>
           <span class="tag">Director</span>
         </figcaption>
       </figure>
@@ -173,17 +193,7 @@
         </figcaption>
       </figure>
 
-      <figure class="grid-item reveal" data-category="director">
-        <button class="grid-thumb" data-title="Project Title" data-desc="Short description of this project — role, client, year." data-category="Director" data-video="">
-          <span class="thumb-fallback">Director</span>
-        </button>
-        <figcaption>
-          <h3>Project Title</h3>
-          <span class="tag">Director</span>
-        </figcaption>
-      </figure>
-
-      <figure class="grid-item reveal" data-category="editor">
+      <figure class="grid-item reveal" data-category="editor" data-featured="true">
         <button class="grid-thumb" data-title="Project Title" data-desc="Short description of this project — role, client, year." data-category="Editor" data-video="">
           <span class="thumb-fallback">Editor</span>
         </button>
@@ -213,7 +223,7 @@
         </figcaption>
       </figure>
 
-      <figure class="grid-item reveal" data-category="social">
+      <figure class="grid-item reveal" data-category="social" data-featured="true">
         <button class="grid-thumb" data-title="Project Title" data-desc="Short description of this project — role, client, year." data-category="Social" data-video="">
           <span class="thumb-fallback">Social</span>
         </button>
@@ -243,7 +253,7 @@
         </figcaption>
       </figure>
 
-      <figure class="grid-item reveal" data-category="motion">
+      <figure class="grid-item reveal" data-category="motion" data-featured="true">
         <button class="grid-thumb" data-title="Project Title" data-desc="Short description of this project — role, client, year." data-category="Motion" data-video="">
           <span class="thumb-fallback">Motion</span>
         </button>
@@ -348,6 +358,10 @@
     <div class="lightbox-media"></div>
     <h3 id="lightboxTitle"></h3>
     <p id="lightboxDesc"></p>
+    <div class="lightbox-campaign" id="lightboxCampaign" hidden>
+      <p class="lightbox-campaign-label" data-es="Más de esta campaña" data-en="More from this campaign">Más de esta campaña</p>
+      <div class="lightbox-campaign-list" id="lightboxCampaignList"></div>
+    </div>
   </div>
 </div>
 

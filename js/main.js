@@ -57,7 +57,7 @@ const gridItems = document.querySelectorAll('.grid-item');
 function applyFilter(filter) {
   filterButtons.forEach((b) => b.classList.toggle('active', b.dataset.filter === filter));
   gridItems.forEach((item) => {
-    const match = filter === 'all' || item.dataset.category === filter;
+    const match = filter === 'featured' ? item.dataset.featured === 'true' : item.dataset.category === filter;
     item.classList.toggle('hidden', !match);
   });
 }
@@ -65,6 +65,8 @@ function applyFilter(filter) {
 filterButtons.forEach((btn) => {
   btn.addEventListener('click', () => applyFilter(btn.dataset.filter));
 });
+
+applyFilter('featured');
 
 // Hero category links: jump to Work pre-filtered to that category
 document.querySelectorAll('.hero-chip').forEach((chip) => {
@@ -79,30 +81,54 @@ const lightboxClose = document.getElementById('lightboxClose');
 const lightboxTitle = document.getElementById('lightboxTitle');
 const lightboxDesc = document.getElementById('lightboxDesc');
 const lightboxMedia = document.querySelector('.lightbox-media');
+const lightboxCampaign = document.getElementById('lightboxCampaign');
+const lightboxCampaignList = document.getElementById('lightboxCampaignList');
 
 // data-video accepts a YouTube/Vimeo embed URL or a local file path (e.g. assets/video/clip.mp4)
 function isEmbedUrl(src) {
   return /youtube\.com\/embed|player\.vimeo\.com/.test(src);
 }
 
+function openLightboxFor(thumb) {
+  lightboxTitle.textContent = thumb.dataset.title || '';
+  lightboxDesc.textContent = thumb.dataset.desc || '';
+
+  const videoSrc = thumb.dataset.video;
+  if (videoSrc) {
+    lightboxMedia.innerHTML = isEmbedUrl(videoSrc)
+      ? `<iframe src="${videoSrc}" title="${thumb.dataset.title || ''}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%;height:100%;"></iframe>`
+      : `<video controls autoplay style="width:100%;height:100%;"><source src="${videoSrc}"></video>`;
+  } else {
+    lightboxMedia.innerHTML = `<span class="lightbox-category">${thumb.dataset.category || ''}</span>`;
+  }
+
+  const campaign = thumb.dataset.campaign;
+  const siblings = campaign
+    ? [...document.querySelectorAll(`.grid-thumb[data-campaign="${campaign}"]`)].filter((el) => el !== thumb)
+    : [];
+
+  if (siblings.length) {
+    lightboxCampaignList.innerHTML = '';
+    siblings.forEach((sibling) => {
+      const btn = document.createElement('button');
+      btn.className = 'lightbox-campaign-item';
+      btn.type = 'button';
+      btn.textContent = sibling.dataset.title || '';
+      btn.addEventListener('click', () => openLightboxFor(sibling));
+      lightboxCampaignList.appendChild(btn);
+    });
+    lightboxCampaign.hidden = false;
+  } else {
+    lightboxCampaign.hidden = true;
+  }
+
+  lightbox.classList.add('open');
+  lightbox.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+
 document.querySelectorAll('.grid-thumb').forEach((thumb) => {
-  thumb.addEventListener('click', () => {
-    lightboxTitle.textContent = thumb.dataset.title || '';
-    lightboxDesc.textContent = thumb.dataset.desc || '';
-
-    const videoSrc = thumb.dataset.video;
-    if (videoSrc) {
-      lightboxMedia.innerHTML = isEmbedUrl(videoSrc)
-        ? `<iframe src="${videoSrc}" title="${thumb.dataset.title || ''}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%;height:100%;"></iframe>`
-        : `<video controls autoplay style="width:100%;height:100%;"><source src="${videoSrc}"></video>`;
-    } else {
-      lightboxMedia.innerHTML = `<span class="lightbox-category">${thumb.dataset.category || ''}</span>`;
-    }
-
-    lightbox.classList.add('open');
-    lightbox.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-  });
+  thumb.addEventListener('click', () => openLightboxFor(thumb));
 });
 
 function closeLightbox() {
