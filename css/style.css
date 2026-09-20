@@ -102,9 +102,19 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; margin: 0; }
   justify-content: space-between;
 }
 .logo {
-  font-family: var(--font-display);
-  font-size: 1.25rem;
-  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+}
+.logo-mark {
+  display: block;
+  width: 36px;
+  height: 36px;
+  border-radius: 4px;
+  transition: width var(--transition), height var(--transition);
+}
+.site-header.scrolled .logo-mark {
+  width: 30px;
+  height: 30px;
 }
 .nav-links {
   display: flex;
