@@ -394,10 +394,12 @@ section { padding: 140px 0; }
   letter-spacing: 0.05em;
 }
 .grid-item figcaption {
+  margin-top: 16px;
+}
+.figcaption-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 16px;
 }
 .grid-item h3 {
   font-size: 1.1rem;
@@ -408,6 +410,21 @@ section { padding: 140px 0; }
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--accent);
+}
+.roles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+.role-tag {
+  font-size: 0.65rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 3px 10px;
 }
 
 /* ==========================================================================
@@ -573,6 +590,9 @@ section { padding: 140px 0; }
 .lightbox-inner h3 {
   font-size: 1.6rem;
   margin-bottom: 12px;
+}
+.lightbox-inner .roles {
+  margin: 0 0 16px;
 }
 .lightbox-inner p {
   color: var(--fg-muted);

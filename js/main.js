@@ -83,6 +83,7 @@ const lightboxDesc = document.getElementById('lightboxDesc');
 const lightboxMedia = document.querySelector('.lightbox-media');
 const lightboxCampaign = document.getElementById('lightboxCampaign');
 const lightboxCampaignList = document.getElementById('lightboxCampaignList');
+const lightboxRoles = document.getElementById('lightboxRoles');
 
 // data-video accepts a YouTube/Vimeo embed URL or a local file path (e.g. assets/video/clip.mp4)
 function isEmbedUrl(src) {
@@ -92,6 +93,9 @@ function isEmbedUrl(src) {
 function openLightboxFor(thumb) {
   lightboxTitle.textContent = thumb.dataset.title || '';
   lightboxDesc.textContent = thumb.dataset.desc || '';
+
+  const roles = thumb.closest('.grid-item')?.querySelector('.roles');
+  lightboxRoles.innerHTML = roles ? roles.innerHTML : '';
 
   const videoSrc = thumb.dataset.video;
   if (videoSrc) {

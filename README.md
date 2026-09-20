@@ -63,6 +63,13 @@ assets/video/        Put a self-hosted reel file here (e.g. reel.mp4)
    popup linking to the others; clicking a sibling swaps the popup to that
    piece without closing it. Leave `data-campaign` off for standalone pieces.
 
+   **Roles** — separate from category, the small pills under each tile's
+   title are your actual credit(s) on that piece. Add/remove
+   `<span class="role-tag">…</span>` elements inside the `.roles` div in
+   the `<figcaption>` — any number, any wording (Director, Editor, Motion
+   Graphics, Colorization, VFX, Camera Operator, Cinematography, Producer,
+   etc.). They also show up automatically in the lightbox popup.
+
 4. **About photo** — swap the `.about-photo` placeholder div for an `<img>`
    pointing at a photo in `assets/images/`.
 
