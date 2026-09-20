@@ -9,8 +9,8 @@ framework, deploys anywhere that serves static files.
 ```
 index.html          Page markup and content
 css/style.css        All styling (dark cinematic theme)
-js/main.js           Nav toggle, scroll reveal, portfolio filter, lightbox
-assets/images/       Put your photos here
+js/main.js           Nav toggle, scroll reveal, portfolio filter, lightbox, language switch
+assets/images/       Photos, favicon.svg, og-image.png (social share preview)
 assets/video/        Put a self-hosted reel file here (e.g. reel.mp4)
 ```
 
@@ -55,11 +55,25 @@ assets/video/        Put a self-hosted reel file here (e.g. reel.mp4)
 4. **About photo** — swap the `.about-photo` placeholder div for an `<img>`
    pointing at a photo in `assets/images/`.
 
-5. **Contact info** — update the email, phone and social links near the
-   bottom of `index.html` (`<section class="contact">`).
+5. **Contact info** — update the email and social links near the bottom of
+   `index.html` (`<section class="contact">`), and the matching icon links
+   in `<footer class="site-footer">`.
 
 6. **Colors** — the accent color and palette are defined as CSS variables at
    the top of `css/style.css` (`:root { --accent: ...; --bg: ...; }`).
+
+7. **Language (Spanish/English)** — the site defaults to Spanish. Any text
+   that should switch languages carries `data-es="…" data-en="…"` attributes
+   (or `data-es-html`/`data-en-html` for text containing tags); `js/main.js`
+   swaps between them when the "EN"/"ES" pill in the nav is clicked, and
+   remembers the visitor's choice. To make a new piece of text translatable,
+   just add matching `data-es`/`data-en` attributes to it.
+
+8. **Favicon & social share image** — `assets/images/favicon.svg` (the "AE / RA"
+   mark) and `assets/images/og-image.png` (shown when the link is shared on
+   WhatsApp/Twitter/etc.) were generated from the site's own fonts/colors.
+   Regenerate either if you change the name, palette, or fonts. Once you
+   move to a custom domain, update `og:url` in `index.html`'s `<head>` to match.
 
 ## Run locally
 

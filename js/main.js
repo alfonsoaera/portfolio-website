@@ -116,6 +116,29 @@ document.addEventListener('keydown', (e) => {
 });
 
 // ==========================================================================
+// Language toggle (Spanish default, English optional)
+// ==========================================================================
+const langToggle = document.getElementById('langToggle');
+const textNodes = document.querySelectorAll('[data-es]');
+const htmlNodes = document.querySelectorAll('[data-es-html]');
+
+function setLanguage(lang) {
+  document.documentElement.lang = lang;
+  textNodes.forEach((el) => { el.textContent = lang === 'en' ? el.dataset.en : el.dataset.es; });
+  htmlNodes.forEach((el) => { el.innerHTML = lang === 'en' ? el.dataset.enHtml : el.dataset.esHtml; });
+  langToggle.textContent = lang === 'en' ? 'ES' : 'EN';
+  try { localStorage.setItem('lang', lang); } catch (e) {}
+}
+
+let savedLang = 'es';
+try { savedLang = localStorage.getItem('lang') || 'es'; } catch (e) {}
+setLanguage(savedLang);
+
+langToggle.addEventListener('click', () => {
+  setLanguage(document.documentElement.lang === 'en' ? 'es' : 'en');
+});
+
+// ==========================================================================
 // Footer year
 // ==========================================================================
 document.getElementById('year').textContent = new Date().getFullYear();

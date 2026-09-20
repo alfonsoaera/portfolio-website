@@ -119,6 +119,20 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; margin: 0; }
 }
 .nav-links a:hover { color: var(--fg); }
 
+.lang-toggle {
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  color: var(--fg-muted);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 5px 14px;
+  transition: color var(--transition), border-color var(--transition);
+}
+.lang-toggle:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
 .nav-toggle {
   display: none;
   flex-direction: column;
@@ -177,9 +191,12 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; margin: 0; }
   z-index: 1;
 }
 .hero-title {
-  font-size: clamp(2.5rem, 7vw, 5.5rem);
-  line-height: 1.05;
+  font-size: clamp(2rem, 5.2vw, 4rem);
+  line-height: 1.15;
   margin-bottom: 20px;
+}
+.hero-title br {
+  display: block;
 }
 .hero-role {
   color: var(--fg-muted);
@@ -251,16 +268,10 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; margin: 0; }
    Section shared
    ========================================================================== */
 section { padding: 140px 0; }
-.section-label {
-  text-transform: uppercase;
-  letter-spacing: 0.25em;
-  font-size: 0.75rem;
-  color: var(--accent);
-  margin: 0 0 12px;
-}
 .section-title {
   font-size: clamp(2rem, 4vw, 3rem);
   margin-bottom: 48px;
+  text-align: center;
 }
 
 /* ==========================================================================
@@ -485,6 +496,34 @@ section { padding: 140px 0; }
   transition: color var(--transition);
 }
 .back-to-top:hover { color: var(--fg); }
+
+.footer-social {
+  display: flex;
+  gap: 10px;
+  order: -1;
+}
+.footer-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  color: var(--fg-muted);
+  transition: color var(--transition), border-color var(--transition);
+}
+.footer-social a:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.social-glyph {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
 
 /* ==========================================================================
    Lightbox

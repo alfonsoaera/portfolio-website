@@ -1,14 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Alfonso Rodríguez Arraiza — Creador de contenido audiovisual</title>
 <meta name="description" content="Alfonso Rodríguez Arraiza — Creador de contenido audiovisual. Reel, portafolio e información de contacto.">
 
+<!-- Social share preview (WhatsApp, Twitter/X, Facebook, iMessage, etc.) -->
+<!-- Update og:url to your final domain once you move off github.io -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alfonsoaera.github.io/portfolio-website/">
+<meta property="og:title" content="Alfonso Rodríguez Arraiza — Creador de contenido audiovisual">
+<meta property="og:description" content="Reel, portafolio e información de contacto.">
+<meta property="og:image" content="assets/images/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Alfonso Rodríguez Arraiza — Creador de contenido audiovisual">
+<meta name="twitter:description" content="Reel, portafolio e información de contacto.">
+<meta name="twitter:image" content="assets/images/og-image.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=Sora:wght@300;400;500&display=swap" rel="stylesheet">
+
+<link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon-180.png">
 
 <link rel="stylesheet" href="css/style.css">
 </head>
@@ -22,10 +38,11 @@
       <span></span><span></span><span></span>
     </button>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#work">Work</a></li>
-      <li><a href="#reel">Reel</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#work" data-es="Trabajo" data-en="Work">Trabajo</a></li>
+      <li><a href="#reel" data-es="Reel" data-en="Reel">Reel</a></li>
+      <li><a href="#about" data-es="Sobre mí" data-en="About">Sobre mí</a></li>
+      <li><a href="#contact" data-es="Contacto" data-en="Contact">Contacto</a></li>
+      <li><button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language">EN</button></li>
     </ul>
   </nav>
 </header>
@@ -53,15 +70,15 @@
     <div class="hero-media-overlay"></div>
   </div>
   <div class="hero-content">
-    <h1 class="hero-title reveal">Alfonso Enrique Rodríguez Arraiza</h1>
-    <p class="hero-role reveal">Creador de contenido audiovisual</p>
+    <h1 class="hero-title reveal">Alfonso Enrique<br>Rodríguez Arraiza</h1>
+    <p class="hero-role reveal" data-es="Creador de contenido audiovisual" data-en="Audiovisual content creator">Creador de contenido audiovisual</p>
     <nav class="hero-categories reveal" aria-label="Jump to a category of work">
-      <a href="#work" class="hero-chip" data-filter="director">Directing</a>
-      <a href="#work" class="hero-chip" data-filter="editor">Editing</a>
-      <a href="#work" class="hero-chip" data-filter="social">Social Content</a>
-      <a href="#work" class="hero-chip" data-filter="motion">Motion Graphics</a>
+      <a href="#work" class="hero-chip" data-filter="director" data-es="Dirección" data-en="Directing">Dirección</a>
+      <a href="#work" class="hero-chip" data-filter="editor" data-es="Edición" data-en="Editing">Edición</a>
+      <a href="#work" class="hero-chip" data-filter="social" data-es="Contenido Social" data-en="Social Content">Contenido Social</a>
+      <a href="#work" class="hero-chip" data-filter="motion" data-es="Motion Graphics" data-en="Motion Graphics">Motion Graphics</a>
     </nav>
-    <a href="#work" class="btn btn-outline reveal">View Work</a>
+    <a href="#work" class="btn btn-outline reveal" data-es="Ver Trabajo" data-en="View Work">Ver Trabajo</a>
   </div>
   <a href="#reel" class="scroll-cue" aria-label="Scroll to reel">
     <span></span>
@@ -71,8 +88,7 @@
 <!-- ============ REEL ============ -->
 <section class="reel" id="reel">
   <div class="container">
-    <p class="section-label reveal">Showreel</p>
-    <h2 class="section-title reveal">The Reel</h2>
+    <h2 class="section-title reveal" data-es="El Reel" data-en="The Reel">El Reel</h2>
   </div>
 
   <div class="reel-frame reveal">
@@ -94,8 +110,8 @@
       <div class="play-icon" aria-hidden="true">
         <svg viewBox="0 0 24 24" width="28" height="28"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
       </div>
-      <p>Your reel goes here</p>
-      <span>Embed a YouTube/Vimeo link or drop an .mp4 into <code>assets/video/</code> — see the comment in index.html</span>
+      <p data-es="Aquí va tu reel" data-en="Your reel goes here">Aquí va tu reel</p>
+      <span data-es-html="Incorpora un enlace de YouTube/Vimeo o coloca un .mp4 en <code>assets/video/</code> — revisa el comentario en index.html" data-en-html="Embed a YouTube/Vimeo link or drop an .mp4 into <code>assets/video/</code> — see the comment in index.html">Incorpora un enlace de YouTube/Vimeo o coloca un .mp4 en <code>assets/video/</code> — revisa el comentario en index.html</span>
     </div>
   </div>
 </section>
@@ -103,11 +119,10 @@
 <!-- ============ WORK / PORTFOLIO ============ -->
 <section class="work" id="work">
   <div class="container">
-    <p class="section-label reveal">Selected Work</p>
-    <h2 class="section-title reveal">Portfolio</h2>
+    <h2 class="section-title reveal">The Work</h2>
 
     <div class="filters reveal" role="tablist" aria-label="Filter portfolio by category">
-      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn active" data-filter="all" data-es="Todos" data-en="All">Todos</button>
       <button class="filter-btn" data-filter="director">Director</button>
       <button class="filter-btn" data-filter="editor">Editor</button>
       <button class="filter-btn" data-filter="social">Social</button>
@@ -255,12 +270,11 @@
       <span>Your photo</span>
     </div>
     <div class="about-copy reveal">
-      <p class="section-label">About</p>
-      <h2 class="section-title">Alfonso Rodríguez Arraiza</h2>
-      <p>
-        Replace this paragraph with a short bio: who you are, the kind of stories or images
-        you make, and what drives your work as a director, editor and creator of audiovisual
-        content. Two to four sentences is usually enough.
+      <h2 class="section-title">The Creator</h2>
+      <p data-es="Reemplaza este párrafo con una breve biografía: quién eres, el tipo de historias o imágenes que creas, y qué impulsa tu trabajo como director, editor y creador de contenido audiovisual. Dos a cuatro oraciones suele ser suficiente." data-en="Replace this paragraph with a short bio: who you are, the kind of stories or images you make, and what drives your work as a director, editor and creator of audiovisual content. Two to four sentences is usually enough.">
+        Reemplaza este párrafo con una breve biografía: quién eres, el tipo de historias o
+        imágenes que creas, y qué impulsa tu trabajo como director, editor y creador de
+        contenido audiovisual. Dos a cuatro oraciones suele ser suficiente.
       </p>
     </div>
   </div>
@@ -269,9 +283,8 @@
 <!-- ============ CONTACT ============ -->
 <section class="contact" id="contact">
   <div class="container">
-    <p class="section-label reveal">Get in touch</p>
-    <h2 class="section-title reveal">Contact</h2>
-    <p class="contact-lead reveal">Available for directing, editing and content creation projects.</p>
+    <h2 class="section-title reveal" data-es="Contacto" data-en="Contact">Contacto</h2>
+    <p class="contact-lead reveal" data-es="Disponible para proyectos de dirección, edición y creación de contenido." data-en="Available for directing, editing and content creation projects.">Disponible para proyectos de dirección, edición y creación de contenido.</p>
 
     <div class="contact-details reveal">
       <a class="contact-email" href="mailto:ae.rodriguezarraiza@gmail.com">ae.rodriguezarraiza@gmail.com</a>
@@ -287,9 +300,31 @@
 </section>
 
 <footer class="site-footer">
-  <div class="container">
-    <p>&copy; <span id="year"></span> Alfonso Rodríguez Arraiza. All rights reserved.</p>
-    <a href="#top" class="back-to-top">Back to top ↑</a>
+  <div class="container footer-grid">
+    <ul class="footer-social">
+      <li>
+        <a href="https://www.instagram.com/alfonso.aera/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="0.9" fill="currentColor" stroke="none"/></svg>
+        </a>
+      </li>
+      <li>
+        <a href="https://vimeo.com/alfonsoaera" target="_blank" rel="noopener" aria-label="Vimeo">
+          <span class="social-glyph">V</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/in/alfonso-rodr%C3%ADguez-arraiza-7881a0270/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <span class="social-glyph">in</span>
+        </a>
+      </li>
+      <li>
+        <a href="mailto:ae.rodriguezarraiza@gmail.com" aria-label="Email">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+        </a>
+      </li>
+    </ul>
+    <p>&copy; <span id="year"></span> Alfonso Rodríguez Arraiza. <span data-es="Todos los derechos reservados." data-en="All rights reserved.">Todos los derechos reservados.</span></p>
+    <a href="#top" class="back-to-top" data-es="Volver arriba ↑" data-en="Back to top ↑">Volver arriba ↑</a>
   </div>
 </footer>
 
