@@ -1,4 +1,4 @@
-# Alfonso E. Rodríguez Arraiza — Portfolio
+# Alfonso Rodríguez Arraiza — Portfolio
 
 A static, dependency-free portfolio site for director / editor / audiovisual
 content creator work. Plain HTML, CSS and JavaScript — no build step, no
