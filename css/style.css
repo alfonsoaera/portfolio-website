@@ -417,6 +417,11 @@ section { padding: 140px 0; }
   gap: 6px;
   margin-top: 10px;
 }
+.grid-item .roles {
+  /* Kept in the markup (the lightbox reads it from here) but hidden on the
+     grid card itself — showing roles on every thumbnail felt cluttered. */
+  display: none;
+}
 .role-tag {
   font-size: 0.65rem;
   letter-spacing: 0.04em;
