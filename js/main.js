@@ -69,13 +69,27 @@ const lightbox = document.getElementById('lightbox');
 const lightboxClose = document.getElementById('lightboxClose');
 const lightboxTitle = document.getElementById('lightboxTitle');
 const lightboxDesc = document.getElementById('lightboxDesc');
-const lightboxCategory = document.getElementById('lightboxCategory');
+const lightboxMedia = document.querySelector('.lightbox-media');
+
+// data-video accepts a YouTube/Vimeo embed URL or a local file path (e.g. assets/video/clip.mp4)
+function isEmbedUrl(src) {
+  return /youtube\.com\/embed|player\.vimeo\.com/.test(src);
+}
 
 document.querySelectorAll('.grid-thumb').forEach((thumb) => {
   thumb.addEventListener('click', () => {
     lightboxTitle.textContent = thumb.dataset.title || '';
     lightboxDesc.textContent = thumb.dataset.desc || '';
-    lightboxCategory.textContent = thumb.dataset.category || '';
+
+    const videoSrc = thumb.dataset.video;
+    if (videoSrc) {
+      lightboxMedia.innerHTML = isEmbedUrl(videoSrc)
+        ? `<iframe src="${videoSrc}" title="${thumb.dataset.title || ''}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%;height:100%;"></iframe>`
+        : `<video controls autoplay style="width:100%;height:100%;"><source src="${videoSrc}"></video>`;
+    } else {
+      lightboxMedia.innerHTML = `<span class="lightbox-category">${thumb.dataset.category || ''}</span>`;
+    }
+
     lightbox.classList.add('open');
     lightbox.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
@@ -86,6 +100,7 @@ function closeLightbox() {
   lightbox.classList.remove('open');
   lightbox.setAttribute('aria-hidden', 'true');
   document.body.style.overflow = '';
+  lightboxMedia.querySelectorAll('video, iframe').forEach((el) => el.remove());
 }
 
 lightboxClose.addEventListener('click', closeLightbox);

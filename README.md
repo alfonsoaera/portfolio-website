@@ -33,6 +33,19 @@ assets/video/        Put a self-hosted reel file here (e.g. reel.mp4)
    `photographer`) so the filter buttons work, and update the matching
    `data-category` label on the button for the lightbox.
 
+   To make a tile play a **video** when clicked (handy for Director/Editor
+   pieces), add a `data-video` attribute to the button:
+   ```html
+   <button class="grid-thumb" data-title="…" data-desc="…" data-category="Director"
+           data-video="https://www.youtube.com/embed/YOUR_VIDEO_ID">
+   ```
+   or point it at a file you dropped in `assets/video/`:
+   ```html
+   data-video="assets/video/my-edit.mp4"
+   ```
+   Leave `data-video` empty/off to keep a plain image tile (used for the
+   Photographer pieces by default).
+
 3. **About photo** — swap the `.about-photo` placeholder div for an `<img>`
    pointing at a photo in `assets/images/`.
 

@@ -89,9 +89,18 @@
     </div>
 
     <div class="grid" id="portfolioGrid">
-      <!-- Replace each figure below with your own project: change data-category, image, title and description -->
+      <!--
+        Replace each figure below with your own project: change data-category, image, title and description.
+
+        For a VIDEO project (typical for Director/Editor pieces), add a data-video attribute
+        to the button, pointing at either:
+          - a YouTube/Vimeo embed URL, e.g. data-video="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+          - a file you dropped in assets/video/, e.g. data-video="assets/video/my-edit.mp4"
+        Clicking the tile will then play that video in the popup instead of showing the text label.
+        Leave data-video off (like the Photographer tiles below) to keep a plain image/placeholder.
+      -->
       <figure class="grid-item reveal" data-category="director">
-        <button class="grid-thumb" data-title="Project Title" data-desc="Short description of this project — role, client, year." data-category="Director">
+        <button class="grid-thumb" data-title="Project Title" data-desc="Short description of this project — role, client, year." data-category="Director" data-video="">
           <span class="thumb-fallback">Director</span>
         </button>
         <figcaption>
@@ -101,7 +110,7 @@
       </figure>
 
       <figure class="grid-item reveal" data-category="editor">
-        <button class="grid-thumb" data-title="Project Title" data-desc="Short description of this project — role, client, year." data-category="Editor">
+        <button class="grid-thumb" data-title="Project Title" data-desc="Short description of this project — role, client, year." data-category="Editor" data-video="">
           <span class="thumb-fallback">Editor</span>
         </button>
         <figcaption>
@@ -121,7 +130,7 @@
       </figure>
 
       <figure class="grid-item reveal" data-category="director">
-        <button class="grid-thumb" data-title="Project Title" data-desc="Short description of this project — role, client, year." data-category="Director">
+        <button class="grid-thumb" data-title="Project Title" data-desc="Short description of this project — role, client, year." data-category="Director" data-video="">
           <span class="thumb-fallback">Director</span>
         </button>
         <figcaption>
@@ -131,7 +140,7 @@
       </figure>
 
       <figure class="grid-item reveal" data-category="editor">
-        <button class="grid-thumb" data-title="Project Title" data-desc="Short description of this project — role, client, year." data-category="Editor">
+        <button class="grid-thumb" data-title="Project Title" data-desc="Short description of this project — role, client, year." data-category="Editor" data-video="">
           <span class="thumb-fallback">Editor</span>
         </button>
         <figcaption>
@@ -210,9 +219,7 @@
 <div class="lightbox" id="lightbox" aria-hidden="true">
   <div class="lightbox-inner">
     <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
-    <div class="lightbox-media">
-      <span id="lightboxCategory" class="lightbox-category"></span>
-    </div>
+    <div class="lightbox-media"></div>
     <h3 id="lightboxTitle"></h3>
     <p id="lightboxDesc"></p>
   </div>
