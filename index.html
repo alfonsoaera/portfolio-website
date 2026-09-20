@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alfonso E. Rodríguez Arraiza — Director, editor y creador de contenido audiovisual</title>
+<meta name="description" content="Alfonso E. Rodríguez Arraiza — Director, editor y creador de contenido audiovisual. Reel, portafolio e información de contacto.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="site-header" id="site-header">
+  <nav class="nav container">
+    <a href="#top" class="logo">Alfonso E. Rodríguez Arraiza</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#reel">Reel</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="hero-content">
+    <p class="eyebrow reveal">Portfolio</p>
+    <h1 class="hero-title reveal">Alfonso E. Rodríguez Arraiza</h1>
+    <p class="hero-role reveal">Director, editor y creador de contenido audiovisual</p>
+    <a href="#work" class="btn btn-outline reveal">View Work</a>
+  </div>
+  <a href="#reel" class="scroll-cue" aria-label="Scroll to reel">
+    <span></span>
+  </a>
+</section>
+
+<!-- ============ REEL ============ -->
+<section class="reel" id="reel">
+  <div class="container">
+    <p class="section-label reveal">Showreel</p>
+    <h2 class="section-title reveal">The Reel</h2>
+  </div>
+
+  <div class="reel-frame reveal">
+    <!--
+      SWAP THIS PLACEHOLDER FOR YOUR REAL REEL:
+
+      Option A — YouTube / Vimeo embed:
+      <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+              title="Showreel" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+
+      Option B — self-hosted file (drop it in assets/video/reel.mp4):
+      <video controls poster="assets/images/reel-poster.jpg">
+        <source src="assets/video/reel.mp4" type="video/mp4">
+      </video>
+    -->
+    <div class="reel-placeholder">
+      <div class="play-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="28" height="28"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+      </div>
+      <p>Your reel goes here</p>
+      <span>Embed a YouTube/Vimeo link or drop an .mp4 into <code>assets/video/</code> — see the comment in index.html</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WORK / PORTFOLIO ============ -->
+<section class="work" id="work">
+  <div class="container">
+    <p class="section-label reveal">Selected Work</p>
+    <h2 class="section-title reveal">Portfolio</h2>
+
+    <div class="filters reveal" role="tablist" aria-label="Filter portfolio by category">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="director">Director</button>
+      <button class="filter-btn" data-filter="editor">Editor</button>
+      <button class="filter-btn" data-filter="photographer">Photographer</button>
+    </div>
+
+    <div class="grid" id="portfolioGrid">
+      <!-- Replace each figure below with your own project: change data-category, image, title and description -->
+      <figure class="grid-item reveal" data-category="director">
+        <button class="grid-thumb" data-title="Project Title" data-desc="Short description of this project — role, client, year." data-category="Director">
+          <span class="thumb-fallback">Director</span>
+        </button>
+        <figcaption>
+          <h3>Project Title</h3>
+          <span class="tag">Director</span>
+        </figcaption>
+      </figure>
+
+      <figure class="grid-item reveal" data-category="editor">
+        <button class="grid-thumb" data-title="Project Title" data-desc="Short description of this project — role, client, year." data-category="Editor">
+          <span class="thumb-fallback">Editor</span>
+        </button>
+        <figcaption>
+          <h3>Project Title</h3>
+          <span class="tag">Editor</span>
+        </figcaption>
+      </figure>
+
+      <figure class="grid-item reveal" data-category="photographer">
+        <button class="grid-thumb" data-title="Project Title" data-desc="Short description of this project — role, client, year." data-category="Photographer">
+          <span class="thumb-fallback">Photographer</span>
+        </button>
+        <figcaption>
+          <h3>Project Title</h3>
+          <span class="tag">Photographer</span>
+        </figcaption>
+      </figure>
+
+      <figure class="grid-item reveal" data-category="director">
+        <button class="grid-thumb" data-title="Project Title" data-desc="Short description of this project — role, client, year." data-category="Director">
+          <span class="thumb-fallback">Director</span>
+        </button>
+        <figcaption>
+          <h3>Project Title</h3>
+          <span class="tag">Director</span>
+        </figcaption>
+      </figure>
+
+      <figure class="grid-item reveal" data-category="editor">
+        <button class="grid-thumb" data-title="Project Title" data-desc="Short description of this project — role, client, year." data-category="Editor">
+          <span class="thumb-fallback">Editor</span>
+        </button>
+        <figcaption>
+          <h3>Project Title</h3>
+          <span class="tag">Editor</span>
+        </figcaption>
+      </figure>
+
+      <figure class="grid-item reveal" data-category="photographer">
+        <button class="grid-thumb" data-title="Project Title" data-desc="Short description of this project — role, client, year." data-category="Photographer">
+          <span class="thumb-fallback">Photographer</span>
+        </button>
+        <figcaption>
+          <h3>Project Title</h3>
+          <span class="tag">Photographer</span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="about" id="about">
+  <div class="container about-grid">
+    <div class="about-photo reveal">
+      <span>Your photo</span>
+    </div>
+    <div class="about-copy reveal">
+      <p class="section-label">About</p>
+      <h2 class="section-title">Alfonso E. Rodríguez Arraiza</h2>
+      <p>
+        Replace this paragraph with a short bio: who you are, the kind of stories or images
+        you make, and what drives your work as a director, editor and creator of audiovisual
+        content. Two to four sentences is usually enough.
+      </p>
+      <ul class="skills">
+        <li>Directing</li>
+        <li>Editing</li>
+        <li>Photography</li>
+        <li>Cinematography</li>
+        <li>Color Grading</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact" id="contact">
+  <div class="container">
+    <p class="section-label reveal">Get in touch</p>
+    <h2 class="section-title reveal">Contact</h2>
+    <p class="contact-lead reveal">Available for directing, editing and photography projects.</p>
+
+    <div class="contact-details reveal">
+      <a class="contact-email" href="mailto:hello@yourdomain.com">hello@yourdomain.com</a>
+      <p class="contact-phone">+1 (555) 555-5555</p>
+      <p class="contact-location">Your City, Country</p>
+    </div>
+
+    <div class="socials reveal">
+      <a href="#" target="_blank" rel="noopener">Instagram</a>
+      <a href="#" target="_blank" rel="noopener">Vimeo</a>
+      <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; <span id="year"></span> Alfonso E. Rodríguez Arraiza. All rights reserved.</p>
+    <a href="#top" class="back-to-top">Back to top ↑</a>
+  </div>
+</footer>
+
+<!-- ============ LIGHTBOX ============ -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+    <div class="lightbox-media">
+      <span id="lightboxCategory" class="lightbox-category"></span>
+    </div>
+    <h3 id="lightboxTitle"></h3>
+    <p id="lightboxDesc"></p>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

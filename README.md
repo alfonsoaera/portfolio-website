@@ -1,0 +1,60 @@
+# Alfonso E. Rodríguez Arraiza — Portfolio
+
+A static, dependency-free portfolio site for director / editor / audiovisual
+content creator work. Plain HTML, CSS and JavaScript — no build step, no
+framework, deploys anywhere that serves static files.
+
+## Structure
+
+```
+index.html          Page markup and content
+css/style.css        All styling (dark cinematic theme)
+js/main.js           Nav toggle, scroll reveal, portfolio filter, lightbox
+assets/images/       Put your photos here
+assets/video/        Put a self-hosted reel file here (e.g. reel.mp4)
+```
+
+## Customize
+
+1. **Reel** — open `index.html`, find the `<section class="reel">` block.
+   It has a comment with two ready-to-use snippets:
+   - a YouTube/Vimeo `<iframe>` embed (just paste your video ID/link), or
+   - a self-hosted `<video>` tag pointing at `assets/video/reel.mp4`.
+   Replace the `.reel-placeholder` div with whichever you use.
+
+2. **Portfolio grid** — in `<section class="work">`, each `<figure class="grid-item">`
+   is one project. To use a real image instead of the text placeholder:
+   ```html
+   <button class="grid-thumb" data-title="…" data-desc="…" data-category="…">
+     <img src="assets/images/your-photo.jpg" alt="Project name" style="width:100%;height:100%;object-fit:cover;">
+   </button>
+   ```
+   Set `data-category` on the parent `<figure>` (`director`, `editor`, or
+   `photographer`) so the filter buttons work, and update the matching
+   `data-category` label on the button for the lightbox.
+
+3. **About photo** — swap the `.about-photo` placeholder div for an `<img>`
+   pointing at a photo in `assets/images/`.
+
+4. **Contact info** — update the email, phone and social links near the
+   bottom of `index.html` (`<section class="contact">`).
+
+5. **Colors** — the accent color and palette are defined as CSS variables at
+   the top of `css/style.css` (`:root { --accent: ...; --bg: ...; }`).
+
+## Run locally
+
+No build step needed. Open `index.html` directly in a browser, or serve it:
+
+```bash
+python3 -m http.server 8000
+# then visit http://localhost:8000
+```
+
+## Deploy
+
+Any static host works. A few common options:
+
+- **GitHub Pages**: Settings → Pages → deploy from the branch/root of this repo.
+- **Netlify / Vercel**: import the repo, no build command needed, publish
+  directory is the repo root.
