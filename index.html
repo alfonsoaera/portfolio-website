@@ -32,8 +32,27 @@
 
 <!-- ============ HERO ============ -->
 <section class="hero" id="top">
+  <!--
+    Background video: drop a file at assets/video/hero-bg.mp4 and it will play
+    automatically (muted, looped, no controls) behind the name/title below.
+    Until that file exists, the video silently fails to load and the plain
+    background shows instead — nothing to remove or comment out.
+
+    Prefer a short (10-30s), fairly dark/desaturated clip so the white text
+    stays readable; the .hero-media-overlay below darkens it further.
+
+    To use a YouTube/Vimeo clip instead of a file, replace the <video> block
+    with an oversized, non-interactive iframe, e.g.:
+      <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1&mute=1&loop=1&playlist=YOUR_VIDEO_ID&controls=0"
+              allow="autoplay" frameborder="0"></iframe>
+  -->
+  <div class="hero-media" aria-hidden="true">
+    <video autoplay muted loop playsinline poster="assets/images/hero-poster.jpg">
+      <source src="assets/video/hero-bg.mp4" type="video/mp4">
+    </video>
+    <div class="hero-media-overlay"></div>
+  </div>
   <div class="hero-content">
-    <p class="eyebrow reveal">Portfolio</p>
     <h1 class="hero-title reveal">Alfonso Rodríguez Arraiza</h1>
     <p class="hero-role reveal">Director, editor y creador de contenido audiovisual</p>
     <a href="#work" class="btn btn-outline reveal">View Work</a>

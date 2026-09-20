@@ -16,13 +16,20 @@ assets/video/        Put a self-hosted reel file here (e.g. reel.mp4)
 
 ## Customize
 
-1. **Reel** — open `index.html`, find the `<section class="reel">` block.
+1. **Hero background video** — open `index.html`, find `<section class="hero">`.
+   Drop a file at `assets/video/hero-bg.mp4` and it plays automatically
+   (muted, looped, no controls) behind your name — no code changes needed.
+   Until that file exists, it silently falls back to the plain background.
+   The comment above `.hero-media` also shows how to use a YouTube/Vimeo
+   clip instead.
+
+2. **Reel** — open `index.html`, find the `<section class="reel">` block.
    It has a comment with two ready-to-use snippets:
    - a YouTube/Vimeo `<iframe>` embed (just paste your video ID/link), or
    - a self-hosted `<video>` tag pointing at `assets/video/reel.mp4`.
    Replace the `.reel-placeholder` div with whichever you use.
 
-2. **Portfolio grid** — in `<section class="work">`, each `<figure class="grid-item">`
+3. **Portfolio grid** — in `<section class="work">`, each `<figure class="grid-item">`
    is one project. To use a real image instead of the text placeholder:
    ```html
    <button class="grid-thumb" data-title="…" data-desc="…" data-category="…">
@@ -46,13 +53,13 @@ assets/video/        Put a self-hosted reel file here (e.g. reel.mp4)
    Leave `data-video` empty/off to keep a plain image tile (used for the
    Photographer pieces by default).
 
-3. **About photo** — swap the `.about-photo` placeholder div for an `<img>`
+4. **About photo** — swap the `.about-photo` placeholder div for an `<img>`
    pointing at a photo in `assets/images/`.
 
-4. **Contact info** — update the email, phone and social links near the
+5. **Contact info** — update the email, phone and social links near the
    bottom of `index.html` (`<section class="contact">`).
 
-5. **Colors** — the accent color and palette are defined as CSS variables at
+6. **Colors** — the accent color and palette are defined as CSS variables at
    the top of `css/style.css` (`:root { --accent: ...; --bg: ...; }`).
 
 ## Run locally
