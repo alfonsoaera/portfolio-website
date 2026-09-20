@@ -54,7 +54,7 @@ assets/video/        Put a self-hosted reel file here (e.g. reel.mp4)
 
    **Featured tab** — the "Destacado"/"Featured" filter shows only pieces
    with `data-featured="true"` on their `<figure>`. Every other filter
-   (Director/Editor/Social/Motion) shows the full list for that category
+   (Director/Editor/Digital/Motion) shows the full list for that category
    regardless of the featured flag — a piece can be in both.
 
    **Campaigns** — if several pieces belong to the same shoot/client
