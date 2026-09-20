@@ -6,7 +6,7 @@
   --bg-alt: #121212;
   --fg: #f2f0ec;
   --fg-muted: #9a9790;
-  --accent: #c9a45c;
+  --accent: #7fa6c9;
   --border: rgba(242, 240, 236, 0.12);
   --font-display: 'Syne', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-body: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -126,7 +126,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; margin: 0; }
   position: relative;
   padding: 120px 24px 80px;
   background:
-    radial-gradient(ellipse at 50% 30%, rgba(201, 164, 92, 0.08), transparent 60%),
+    radial-gradient(ellipse at 50% 30%, rgba(127, 166, 201, 0.08), transparent 60%),
     var(--bg);
 }
 .eyebrow {
@@ -305,10 +305,10 @@ section { padding: 140px 0; }
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(201, 164, 92, 0);
+  background: rgba(127, 166, 201, 0);
   transition: background var(--transition);
 }
-.grid-thumb:hover::after { background: rgba(201, 164, 92, 0.08); }
+.grid-thumb:hover::after { background: rgba(127, 166, 201, 0.08); }
 .thumb-fallback {
   font-family: var(--font-display);
   font-size: 1.1rem;
