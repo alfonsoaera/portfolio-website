@@ -442,7 +442,6 @@ section { padding: 140px 0; }
   color: var(--accent);
   border-color: var(--accent);
 }
-.contact-phone,
 .contact-location {
   color: var(--fg-muted);
   margin: 8px 0 0;
