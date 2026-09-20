@@ -257,15 +257,17 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; margin: 0; }
   font-size: 0.85rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  border-radius: 999px;
   transition: background var(--transition), color var(--transition), border-color var(--transition);
 }
 .btn-outline {
-  border: 1px solid var(--border);
-  color: var(--fg);
-}
-.btn-outline:hover {
   background: var(--fg);
   color: var(--bg);
+  border: 1px solid var(--fg);
+}
+.btn-outline:hover {
+  background: transparent;
+  color: var(--fg);
   border-color: var(--fg);
 }
 
