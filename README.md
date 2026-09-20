@@ -36,12 +36,12 @@ assets/video/        Put a self-hosted reel file here (e.g. reel.mp4)
      <img src="assets/images/your-photo.jpg" alt="Project name" style="width:100%;height:100%;object-fit:cover;">
    </button>
    ```
-   Set `data-category` on the parent `<figure>` (`director`, `editor`, or
-   `photographer`) so the filter buttons work, and update the matching
-   `data-category` label on the button for the lightbox.
+   Set `data-category` on the parent `<figure>` (`director`, `editor`,
+   `social`, or `motion`) so the filter buttons work, and update the
+   matching `data-category` label on the button for the lightbox.
 
-   To make a tile play a **video** when clicked (handy for Director/Editor
-   pieces), add a `data-video` attribute to the button:
+   To make a tile play a **video** when clicked (the default for all four
+   categories currently), add a `data-video` attribute to the button:
    ```html
    <button class="grid-thumb" data-title="…" data-desc="…" data-category="Director"
            data-video="https://www.youtube.com/embed/YOUR_VIDEO_ID">
@@ -50,8 +50,7 @@ assets/video/        Put a self-hosted reel file here (e.g. reel.mp4)
    ```html
    data-video="assets/video/my-edit.mp4"
    ```
-   Leave `data-video` empty/off to keep a plain image tile (used for the
-   Photographer pieces by default).
+   Leave `data-video` empty/off to keep a plain image tile instead.
 
 4. **About photo** — swap the `.about-photo` placeholder div for an `<img>`
    pointing at a photo in `assets/images/`.

@@ -104,7 +104,8 @@
       <button class="filter-btn active" data-filter="all">All</button>
       <button class="filter-btn" data-filter="director">Director</button>
       <button class="filter-btn" data-filter="editor">Editor</button>
-      <button class="filter-btn" data-filter="photographer">Photographer</button>
+      <button class="filter-btn" data-filter="social">Social</button>
+      <button class="filter-btn" data-filter="motion">Motion</button>
     </div>
 
     <div class="grid" id="portfolioGrid">
@@ -116,7 +117,7 @@
           - a YouTube/Vimeo embed URL, e.g. data-video="https://www.youtube.com/embed/YOUR_VIDEO_ID"
           - a file you dropped in assets/video/, e.g. data-video="assets/video/my-edit.mp4"
         Clicking the tile will then play that video in the popup instead of showing the text label.
-        Leave data-video off (like the Photographer tiles below) to keep a plain image/placeholder.
+        Leave data-video off to keep a plain image/placeholder instead.
       -->
       <figure class="grid-item reveal" data-category="director">
         <button class="grid-thumb" data-title="Project Title" data-desc="Short description of this project — role, client, year." data-category="Director" data-video="">
@@ -138,13 +139,13 @@
         </figcaption>
       </figure>
 
-      <figure class="grid-item reveal" data-category="photographer">
-        <button class="grid-thumb" data-title="Project Title" data-desc="Short description of this project — role, client, year." data-category="Photographer">
-          <span class="thumb-fallback">Photographer</span>
+      <figure class="grid-item reveal" data-category="social">
+        <button class="grid-thumb" data-title="Project Title" data-desc="Short description of this project — role, client, year." data-category="Social" data-video="">
+          <span class="thumb-fallback">Social</span>
         </button>
         <figcaption>
           <h3>Project Title</h3>
-          <span class="tag">Photographer</span>
+          <span class="tag">Social</span>
         </figcaption>
       </figure>
 
@@ -168,13 +169,33 @@
         </figcaption>
       </figure>
 
-      <figure class="grid-item reveal" data-category="photographer">
-        <button class="grid-thumb" data-title="Project Title" data-desc="Short description of this project — role, client, year." data-category="Photographer">
-          <span class="thumb-fallback">Photographer</span>
+      <figure class="grid-item reveal" data-category="motion">
+        <button class="grid-thumb" data-title="Project Title" data-desc="Short description of this project — role, client, year." data-category="Motion" data-video="">
+          <span class="thumb-fallback">Motion</span>
         </button>
         <figcaption>
           <h3>Project Title</h3>
-          <span class="tag">Photographer</span>
+          <span class="tag">Motion</span>
+        </figcaption>
+      </figure>
+
+      <figure class="grid-item reveal" data-category="social">
+        <button class="grid-thumb" data-title="Project Title" data-desc="Short description of this project — role, client, year." data-category="Social" data-video="">
+          <span class="thumb-fallback">Social</span>
+        </button>
+        <figcaption>
+          <h3>Project Title</h3>
+          <span class="tag">Social</span>
+        </figcaption>
+      </figure>
+
+      <figure class="grid-item reveal" data-category="motion">
+        <button class="grid-thumb" data-title="Project Title" data-desc="Short description of this project — role, client, year." data-category="Motion" data-video="">
+          <span class="thumb-fallback">Motion</span>
+        </button>
+        <figcaption>
+          <h3>Project Title</h3>
+          <span class="tag">Motion</span>
         </figcaption>
       </figure>
     </div>
