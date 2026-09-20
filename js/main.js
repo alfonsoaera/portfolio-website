@@ -113,7 +113,10 @@ function openLightboxFor(thumb) {
       const btn = document.createElement('button');
       btn.className = 'lightbox-campaign-item';
       btn.type = 'button';
-      btn.textContent = sibling.dataset.title || '';
+      btn.innerHTML = `
+        <span class="lightbox-campaign-thumb">${sibling.innerHTML}</span>
+        <span class="lightbox-campaign-title">${sibling.dataset.title || ''}</span>
+      `;
       btn.addEventListener('click', () => openLightboxFor(sibling));
       lightboxCampaignList.appendChild(btn);
     });

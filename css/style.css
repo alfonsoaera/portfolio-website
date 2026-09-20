@@ -209,8 +209,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; margin: 0; }
   background:
     linear-gradient(180deg, rgba(6, 8, 10, 0.55) 0%, rgba(6, 8, 10, 0.75) 100%);
 }
-.hero-content,
-.scroll-cue {
+.hero-content {
   position: relative;
   z-index: 1;
 }
@@ -268,24 +267,6 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; margin: 0; }
   background: var(--fg);
   color: var(--bg);
   border-color: var(--fg);
-}
-
-.scroll-cue {
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-.scroll-cue span {
-  display: block;
-  width: 1px;
-  height: 48px;
-  background: linear-gradient(var(--fg-muted), transparent);
-  animation: scrollPulse 2s ease-in-out infinite;
-}
-@keyframes scrollPulse {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 1; }
 }
 
 /* ==========================================================================
@@ -609,20 +590,43 @@ section { padding: 140px 0; }
 .lightbox-campaign-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 16px;
 }
 .lightbox-campaign-item {
-  padding: 8px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 140px;
+  text-align: left;
+}
+.lightbox-campaign-thumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: linear-gradient(135deg, #1c1c1c, #262626);
   border: 1px solid var(--border);
-  border-radius: 999px;
-  font-size: 0.8rem;
+  overflow: hidden;
   color: var(--fg-muted);
-  transition: color var(--transition), border-color var(--transition);
+  font-size: 0.7rem;
+  transition: border-color var(--transition);
 }
-.lightbox-campaign-item:hover {
-  color: var(--fg);
-  border-color: var(--fg);
+.lightbox-campaign-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
+.lightbox-campaign-thumb .thumb-fallback {
+  font-size: 0.75rem;
+}
+.lightbox-campaign-title {
+  font-size: 0.78rem;
+  color: var(--fg-muted);
+  transition: color var(--transition);
+}
+.lightbox-campaign-item:hover .lightbox-campaign-thumb { border-color: var(--fg); }
+.lightbox-campaign-item:hover .lightbox-campaign-title { color: var(--fg); }
 .lightbox-close {
   position: absolute;
   top: 24px;
