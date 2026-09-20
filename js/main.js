@@ -49,17 +49,21 @@ revealItems.forEach((item) => revealObserver.observe(item));
 const filterButtons = document.querySelectorAll('.filter-btn');
 const gridItems = document.querySelectorAll('.grid-item');
 
-filterButtons.forEach((btn) => {
-  btn.addEventListener('click', () => {
-    filterButtons.forEach((b) => b.classList.remove('active'));
-    btn.classList.add('active');
-
-    const filter = btn.dataset.filter;
-    gridItems.forEach((item) => {
-      const match = filter === 'all' || item.dataset.category === filter;
-      item.classList.toggle('hidden', !match);
-    });
+function applyFilter(filter) {
+  filterButtons.forEach((b) => b.classList.toggle('active', b.dataset.filter === filter));
+  gridItems.forEach((item) => {
+    const match = filter === 'all' || item.dataset.category === filter;
+    item.classList.toggle('hidden', !match);
   });
+}
+
+filterButtons.forEach((btn) => {
+  btn.addEventListener('click', () => applyFilter(btn.dataset.filter));
+});
+
+// Hero category links: jump to Work pre-filtered to that category
+document.querySelectorAll('.hero-chip').forEach((chip) => {
+  chip.addEventListener('click', () => applyFilter(chip.dataset.filter));
 });
 
 // ==========================================================================
