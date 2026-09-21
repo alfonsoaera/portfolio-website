@@ -813,7 +813,8 @@ section { padding: 140px 0; }
   }
   section { padding: 90px 0; }
   .contact-email {
-    font-size: clamp(1rem, 4.5vw, 1.6rem);
+    font-size: clamp(0.85rem, 4.2vw, 1.4rem);
     white-space: nowrap;
+    overflow-wrap: normal;
   }
 }
