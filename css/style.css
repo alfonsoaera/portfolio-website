@@ -663,7 +663,11 @@ section { padding: 140px 0; }
   height: 100dvh;
   z-index: 200;
   display: flex;
-  align-items: center;
+  /* align-items: center clips content taller than the viewport — the
+     top becomes unreachable even at scrollTop 0, since centering shifts
+     the box up by an offset scrolling can't recover. flex-start plus
+     auto margins on the inner wrapper still centers it when short. */
+  align-items: flex-start;
   justify-content: center;
   background: rgba(10, 10, 10, 0.95);
   opacity: 0;
@@ -679,6 +683,7 @@ section { padding: 140px 0; }
 .brand-gallery-inner {
   max-width: 900px;
   width: 100%;
+  margin: auto 0;
 }
 .brand-gallery-label {
   text-transform: uppercase;
@@ -867,7 +872,9 @@ section { padding: 140px 0; }
   height: 100dvh;
   z-index: 200;
   display: flex;
-  align-items: center;
+  /* align-items: center clips content taller than the viewport — the top
+     becomes unreachable even at scrollTop 0 (same fix as .brand-gallery). */
+  align-items: flex-start;
   justify-content: center;
   background: rgba(10, 10, 10, 0.95);
   opacity: 0;
@@ -883,6 +890,7 @@ section { padding: 140px 0; }
 .lightbox-inner {
   max-width: 720px;
   width: 100%;
+  margin: auto 0;
 }
 .lightbox-media {
   aspect-ratio: 16 / 9;
