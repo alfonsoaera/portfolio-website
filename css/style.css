@@ -518,26 +518,26 @@ section { padding: 140px 0; }
   object-fit: cover;
 }
 /* Easter egg: hidden behind the photo until clicked/tapped, then it swings
-   out counter-clockwise from behind for a few seconds (see .dino-peek
-   toggle in js/main.js). Pivoting from a corner near the photo and rotating
-   counter-clockwise (negative deg) fans the head out and up into view. */
+   out from behind for a few seconds (see .dino-peek toggle in js/main.js).
+   Mobile: peeks up over the top edge (little room to the sides there).
+   Desktop (see media query below): peeks out past the left edge instead. */
 .about-photo-dino {
   position: absolute;
-  top: 10%;
-  left: -30px;
+  top: -30px;
+  left: 14px;
   width: 64px;
   height: 64px;
   stroke-width: 16px;
   color: var(--accent);
   pointer-events: none;
   opacity: 0;
-  transform-origin: 85% 65%;
-  transform: rotate(55deg) scale(0.5);
+  transform-origin: 50% 88%;
+  transform: rotate(-65deg) scale(0.5);
   transition: opacity 0.4s ease, transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 .about-photo.dino-peek .about-photo-dino {
   opacity: 1;
-  transform: rotate(-10deg) scale(1);
+  transform: rotate(6deg) scale(1);
 }
 .about-copy p {
   color: var(--fg-muted);
@@ -577,13 +577,19 @@ section { padding: 140px 0; }
   .about-copy p { grid-area: bio; max-width: 60ch; }
   .about-copy .skills-list-roles { grid-area: skills1; clear: none; }
 
-  /* Bigger peek target now that there's a full tall photo to hide behind. */
+  /* Bigger peek target now that there's a full tall photo to hide behind,
+     and back to peeking from the left edge (there's room to the side here). */
   .about-photo-dino {
     top: 8%;
     left: -75px;
     width: 150px;
     height: 150px;
     stroke-width: 8px;
+    transform-origin: 85% 65%;
+    transform: rotate(55deg) scale(0.5);
+  }
+  .about-photo.dino-peek .about-photo-dino {
+    transform: rotate(-10deg) scale(1);
   }
 }
 /* ==========================================================================
