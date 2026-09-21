@@ -451,6 +451,12 @@ section { padding: 140px 0; }
   color: var(--fg-muted);
   font-size: 0.9rem;
   letter-spacing: 0.05em;
+  overflow: hidden;
+}
+.about-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .about-copy p {
   color: var(--fg-muted);
