@@ -484,8 +484,7 @@ section { padding: 140px 0; }
     grid-template-areas:
       "photo title"
       "photo bio"
-      "photo skills1"
-      "photo skills2";
+      "photo skills1";
     column-gap: 64px;
     align-items: center;
   }
@@ -502,7 +501,6 @@ section { padding: 140px 0; }
   }
   .about-copy p { grid-area: bio; max-width: 60ch; }
   .about-copy .skills-list-roles { grid-area: skills1; clear: none; }
-  .about-copy .skills-list-lang { grid-area: skills2; }
 }
 /* ==========================================================================
    Brands
