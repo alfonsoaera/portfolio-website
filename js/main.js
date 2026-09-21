@@ -102,8 +102,9 @@ document.querySelectorAll('.hero-chip').forEach((chip) => {
 });
 
 // ==========================================================================
-// Grid thumbnails: a manually uploaded data-thumb always wins; otherwise
-// auto-pull the YouTube thumbnail at the highest resolution available.
+// Grid thumbnails: a manually uploaded data-thumb wins when present, with
+// the auto YouTube thumbnail (mqdefault — small, but always available) as
+// a fallback if the manual image fails to load for any reason.
 // ==========================================================================
 document.querySelectorAll('.grid-thumb[data-thumb], .grid-thumb[data-video]').forEach((thumb) => {
   const img = document.createElement('img');
@@ -112,25 +113,25 @@ document.querySelectorAll('.grid-thumb[data-thumb], .grid-thumb[data-video]').fo
   img.alt = thumb.dataset.title || '';
   img.addEventListener('load', () => thumb.classList.add('has-thumb'));
 
+  const youtubeMatch = thumb.dataset.video && thumb.dataset.video.match(/youtube\.com\/embed\/([^?&/]+)/);
+  const youtubeThumbUrl = youtubeMatch ? `https://img.youtube.com/vi/${youtubeMatch[1]}/mqdefault.jpg` : null;
+
   if (thumb.dataset.thumb) {
-    img.addEventListener('error', () => img.remove());
+    img.addEventListener('error', () => {
+      if (youtubeThumbUrl && img.src !== youtubeThumbUrl) {
+        img.src = youtubeThumbUrl;
+      } else {
+        img.remove();
+      }
+    });
     img.src = thumb.dataset.thumb;
     thumb.prepend(img);
     return;
   }
 
-  const match = thumb.dataset.video.match(/youtube\.com\/embed\/([^?&/]+)/);
-  if (!match) return;
-  const videoId = match[1];
-  // maxresdefault (1280x720) isn't generated for every video — if it 404s,
-  // fall back to hqdefault (480x360, always available) before giving up.
-  let triedFallback = false;
-  img.addEventListener('error', () => {
-    if (triedFallback) { img.remove(); return; }
-    triedFallback = true;
-    img.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
-  });
-  img.src = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+  if (!youtubeThumbUrl) return;
+  img.addEventListener('error', () => img.remove());
+  img.src = youtubeThumbUrl;
   thumb.prepend(img);
 });
 
@@ -234,62 +235,6 @@ lightbox.addEventListener('click', (e) => {
 });
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeLightbox();
-});
-
-// ==========================================================================
-// Brand gallery — click a brand logo to see every piece for that client
-// ==========================================================================
-const brandGallery = document.getElementById('brandGallery');
-const brandGalleryClose = document.getElementById('brandGalleryClose');
-const brandGalleryTitle = document.getElementById('brandGalleryTitle');
-const brandGalleryGrid = document.getElementById('brandGalleryGrid');
-const brandGalleryEmpty = document.getElementById('brandGalleryEmpty');
-
-function openBrandGallery(client) {
-  const matches = [...document.querySelectorAll('.grid-thumb[data-client]')].filter(
-    (thumb) => thumb.dataset.client === client
-  );
-
-  brandGalleryTitle.textContent = client;
-  brandGalleryGrid.innerHTML = '';
-  brandGalleryEmpty.hidden = matches.length > 0;
-
-  matches.forEach((thumb) => {
-    const item = document.createElement('button');
-    item.className = 'brand-gallery-item';
-    item.type = 'button';
-    item.innerHTML = `
-      <span class="brand-gallery-thumb">${thumb.innerHTML}</span>
-      <span class="brand-gallery-item-title">${thumb.dataset.title || ''}</span>
-    `;
-    item.addEventListener('click', () => {
-      closeBrandGallery();
-      openLightboxFor(thumb);
-    });
-    brandGalleryGrid.appendChild(item);
-  });
-
-  brandGallery.classList.add('open');
-  brandGallery.setAttribute('aria-hidden', 'false');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeBrandGallery() {
-  brandGallery.classList.remove('open');
-  brandGallery.setAttribute('aria-hidden', 'true');
-  document.body.style.overflow = '';
-}
-
-document.querySelectorAll('.brand-card[data-client]').forEach((card) => {
-  card.addEventListener('click', () => openBrandGallery(card.dataset.client));
-});
-
-brandGalleryClose.addEventListener('click', closeBrandGallery);
-brandGallery.addEventListener('click', (e) => {
-  if (e.target === brandGallery) closeBrandGallery();
-});
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && brandGallery.classList.contains('open')) closeBrandGallery();
 });
 
 // ==========================================================================
