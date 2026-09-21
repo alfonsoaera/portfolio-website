@@ -70,6 +70,9 @@ assets/video/        Put a self-hosted reel file here (e.g. reel.mp4)
    Opening any one of them adds a "More from this campaign" row in the
    popup linking to the others; clicking a sibling swaps the popup to that
    piece without closing it. Leave `data-campaign` off for standalone pieces.
+   Special case: use `data-campaign="Music Videos"` for a group of music
+   videos and that row reads "Other music videos" instead, since they
+   aren't really a single "campaign".
 
    **Roles** — separate from category, the small pills under each tile's
    title are your actual credit(s) on that piece. Add/remove

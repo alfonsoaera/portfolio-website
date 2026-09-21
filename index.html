@@ -166,7 +166,9 @@
         each button the same data-campaign="some-slug" value (and a distinct
         data-title). Opening any one of them shows a "More from this campaign"
         row in the popup linking to the others — clicking a sibling swaps the
-        popup to that piece without closing it.
+        popup to that piece without closing it. Special case: set
+        data-campaign="Music Videos" and the row reads "Other music videos"
+        instead, since those aren't really a single "campaign".
 
         ROLES: the small pills under the title/category tag are your actual
         role(s) on that piece (separate from its category) — add or remove
@@ -471,7 +473,7 @@
     <div class="roles" id="lightboxRoles"></div>
     <p id="lightboxDesc"></p>
     <div class="lightbox-campaign" id="lightboxCampaign" hidden>
-      <p class="lightbox-campaign-label" data-es="Más de esta campaña" data-en="More from this campaign">Más de esta campaña</p>
+      <p class="lightbox-campaign-label" id="lightboxCampaignLabel" data-es="Más de esta campaña" data-en="More from this campaign">Más de esta campaña</p>
       <div class="lightbox-campaign-list" id="lightboxCampaignList"></div>
     </div>
   </div>

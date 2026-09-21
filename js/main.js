@@ -84,6 +84,7 @@ const lightboxDesc = document.getElementById('lightboxDesc');
 const lightboxMedia = document.querySelector('.lightbox-media');
 const lightboxCampaign = document.getElementById('lightboxCampaign');
 const lightboxCampaignList = document.getElementById('lightboxCampaignList');
+const lightboxCampaignLabel = document.getElementById('lightboxCampaignLabel');
 const lightboxRoles = document.getElementById('lightboxRoles');
 
 // data-video accepts a YouTube/Vimeo embed URL or a local file path (e.g. assets/video/clip.mp4)
@@ -113,6 +114,13 @@ function openLightboxFor(thumb) {
     : [];
 
   if (siblings.length) {
+    const isMusicVideos = campaign === 'Music Videos';
+    lightboxCampaignLabel.dataset.es = isMusicVideos ? 'Otros videos musicales' : 'Más de esta campaña';
+    lightboxCampaignLabel.dataset.en = isMusicVideos ? 'Other music videos' : 'More from this campaign';
+    lightboxCampaignLabel.textContent = document.documentElement.lang === 'en'
+      ? lightboxCampaignLabel.dataset.en
+      : lightboxCampaignLabel.dataset.es;
+
     lightboxCampaignList.innerHTML = '';
     siblings.forEach((sibling) => {
       const btn = document.createElement('button');
