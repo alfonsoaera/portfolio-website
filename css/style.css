@@ -469,10 +469,6 @@ section { padding: 140px 0; }
   gap: 8px;
   margin-bottom: 20px;
 }
-.lang-note {
-  font-size: 0.85rem;
-}
-
 /* ==========================================================================
    Brands
    ========================================================================== */
@@ -512,7 +508,6 @@ section { padding: 140px 0; }
 .brand-card img {
   height: 100%;
   width: auto;
-  max-width: 120px;
   object-fit: contain;
 }
 
