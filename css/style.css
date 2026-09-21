@@ -37,11 +37,13 @@ body::before {
   position: fixed;
   inset: 0;
   /* explicit height (not just inset:0) so mobile browsers don't leave this
-     sized to the initial viewport before the address bar collapses —
-     same fix used for .hero/.lightbox elsewhere in this file */
+     sized to the initial viewport before the address bar collapses. Prefer
+     --vh100 (set from real window.innerHeight in js/main.js) over 100dvh —
+     some mobile browsers don't recompute dvh reliably for ::before/::after. */
   width: 100vw;
   height: 100vh;
   height: 100dvh;
+  height: var(--vh100, 100dvh);
   z-index: 9999;
   pointer-events: none;
   opacity: 0.03;
@@ -57,6 +59,7 @@ body::after {
   width: 100vw;
   height: 100vh;
   height: 100dvh;
+  height: var(--vh100, 100dvh);
   z-index: 9998;
   pointer-events: none;
   background:

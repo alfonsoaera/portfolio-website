@@ -1,4 +1,20 @@
 // ==========================================================================
+// Real viewport height (mobile toolbars resize the viewport after load,
+// and some mobile browsers don't recompute 100dvh reliably for ::before/
+// ::after pseudo-elements — this reads the actual window height instead so
+// the film-grain/vignette overlays never end up short of the real screen).
+// ==========================================================================
+const setViewportHeightVar = () => {
+  document.documentElement.style.setProperty('--vh100', `${window.innerHeight}px`);
+};
+setViewportHeightVar();
+window.addEventListener('resize', setViewportHeightVar);
+window.addEventListener('orientationchange', setViewportHeightVar);
+if (window.visualViewport) {
+  window.visualViewport.addEventListener('resize', setViewportHeightVar);
+}
+
+// ==========================================================================
 // Header background on scroll
 // ==========================================================================
 const header = document.getElementById('site-header');
