@@ -450,14 +450,30 @@ section { padding: 140px 0; }
 }
 
 /* ==========================================================================
+   Dino mark (shared line-art icon, see #dino-mark symbol in index.html)
+   ========================================================================== */
+.dino-mark {
+  display: block;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: square;
+  stroke-linejoin: bevel;
+}
+
+/* ==========================================================================
    About
    ========================================================================== */
 /* Mobile-first: photo floats beside the bio paragraph (small, 1:1). */
 .about-photo {
+  position: relative;
   float: left;
   width: 112px;
   aspect-ratio: 1 / 1;
   margin: 4px 20px 12px 0;
+}
+.about-photo-frame {
+  width: 100%;
+  height: 100%;
   background: linear-gradient(160deg, #1c1c1c, #262626);
   border: 1px solid var(--border);
   overflow: hidden;
@@ -466,6 +482,10 @@ section { padding: 140px 0; }
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+/* Dino corner accent — desktop only, see the @media block below for why. */
+.about-photo-dino {
+  display: none;
 }
 .about-copy p {
   color: var(--fg-muted);
@@ -504,6 +524,20 @@ section { padding: 140px 0; }
   }
   .about-copy p { grid-area: bio; max-width: 60ch; }
   .about-copy .skills-list-roles { grid-area: skills1; clear: none; }
+
+  /* Dino accent only shows up at this size and larger — below ~64px it stops
+     reading as a dinosaur and just looks like a stray green scribble. */
+  .about-photo-dino {
+    display: block;
+    position: absolute;
+    right: -30px;
+    bottom: -26px;
+    width: 120px;
+    height: 120px;
+    stroke-width: 9px;
+    color: var(--accent);
+    pointer-events: none;
+  }
 }
 /* ==========================================================================
    Brands
@@ -729,6 +763,19 @@ section { padding: 140px 0; }
 }
 .back-to-top:hover { color: var(--accent); }
 
+.footer-copy {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.footer-dino {
+  width: 30px;
+  height: 30px;
+  stroke-width: 14px;
+  color: var(--accent);
+  opacity: 0.75;
+  flex-shrink: 0;
+}
 .footer-social {
   display: flex;
   gap: 10px;
