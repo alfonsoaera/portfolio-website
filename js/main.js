@@ -49,6 +49,33 @@ const revealObserver = new IntersectionObserver(
 revealItems.forEach((item) => revealObserver.observe(item));
 
 // ==========================================================================
+// Dino easter egg — click the logo or the About photo and it peeks out
+// from behind for a few seconds, then hides again.
+// ==========================================================================
+function triggerDinoPeek(el) {
+  el.classList.add('dino-peek');
+  clearTimeout(el._dinoPeekTimer);
+  el._dinoPeekTimer = setTimeout(() => el.classList.remove('dino-peek'), 2500);
+}
+
+document.querySelectorAll('.logo, .about-photo').forEach((el) => {
+  el.addEventListener('click', () => triggerDinoPeek(el));
+});
+
+// .about-photo isn't a native control (no built-in Enter/Space activation),
+// so it needs its own keyboard handling. .logo is a real <a> — activating it
+// via keyboard already fires a click event, so it's covered by the listener above.
+const aboutPhoto = document.querySelector('.about-photo');
+if (aboutPhoto) {
+  aboutPhoto.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      triggerDinoPeek(aboutPhoto);
+    }
+  });
+}
+
+// ==========================================================================
 // Portfolio filtering
 // ==========================================================================
 const filterButtons = document.querySelectorAll('.filter-btn');

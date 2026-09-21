@@ -48,6 +48,7 @@
   <nav class="nav container">
     <a href="#top" class="logo">
       <img src="assets/images/favicon-180.png" alt="AERA" class="logo-mark">
+      <svg class="logo-dino dino-mark" viewBox="0 0 500 500" aria-hidden="true"><use href="#dino-mark"></use></svg>
     </a>
 
     <div class="nav-menu">
@@ -714,15 +715,15 @@
         TODO: replace profile-photo-square.jpg with a proper 1:1 crop —
         it's currently just an automated top-crop of the tall portrait.
       -->
-      <div class="about-photo reveal">
+      <!-- Easter egg: click/tap the photo and it peeks a dino out from behind
+           the corner for a few seconds (see .dino-peek toggle in js/main.js). -->
+      <div class="about-photo reveal" tabindex="0">
         <div class="about-photo-frame">
           <picture>
             <source media="(min-width: 861px)" srcset="assets/images/profile-photo.jpg">
             <img src="assets/images/profile-photo-square.jpg" alt="Alfonso Rodríguez Arraiza">
           </picture>
         </div>
-        <!-- Dino accent: desktop only (see .about-photo-dino) — too small to read as
-             the motif below ~64px, and the mobile photo isn't big enough to host it. -->
         <svg class="about-photo-dino dino-mark" viewBox="0 0 500 500" aria-hidden="true"><use href="#dino-mark"></use></svg>
       </div>
       <p class="reveal" data-es="Lo mejor de la industria audiovisual es ver cómo cobran vida las ideas en las que trabajo. Creo videos desde antes de saber leer, y ver el producto final de cada proyecto nunca dejará de llenarme de orgullo. Lo que busco es que cada cliente sienta ese mismo orgullo. Mi filosofía es simple: todas las personas son creativas, y mi trabajo es darle forma a la creatividad de cada cliente. Desde proyectos sin equipo y con presupuesto mínimo hasta producciones grandes para campañas multiplataforma, me gusta proponer ideas atrevidas y afinarlas junto al cliente hasta que cuenten justo lo que quiere decir." data-en="The best part of the audiovisual industry is watching the ideas I work on come to life. I've been making videos since before I could read, and seeing the final product of every project will never stop filling me with pride. What I want is for every client to feel that same pride. My philosophy is simple: everybody is creative, and my job is to turn each client's creativity into something real. From projects with no crew and a minimal budget to large-scale multi-platform campaigns, I love pitching bold ideas and refining them with the client until they convey exactly what the client wants to say.">
