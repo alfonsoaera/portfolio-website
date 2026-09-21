@@ -86,7 +86,7 @@ document.querySelectorAll('.grid-thumb[data-video]').forEach((thumb) => {
   img.alt = thumb.dataset.title || '';
   img.addEventListener('load', () => thumb.classList.add('has-thumb'));
   img.addEventListener('error', () => img.remove());
-  img.src = `https://img.youtube.com/vi/${match[1]}/hqdefault.jpg`;
+  img.src = `https://img.youtube.com/vi/${match[1]}/mqdefault.jpg`;
   thumb.prepend(img);
 });
 
