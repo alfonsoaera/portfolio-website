@@ -21,6 +21,7 @@
 html { scroll-behavior: smooth; }
 body {
   margin: 0;
+  overflow-x: hidden;
   background: var(--bg);
   color: var(--fg);
   font-family: var(--font-body);
@@ -181,6 +182,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; margin: 0; }
    ========================================================================== */
 .hero {
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -535,11 +537,13 @@ section { padding: 140px 0; }
 }
 .contact-email {
   display: inline-block;
+  max-width: 100%;
   font-family: var(--font-display);
   font-size: clamp(1.5rem, 4vw, 2.5rem);
   color: var(--fg);
   border-bottom: 1px solid var(--border);
   padding-bottom: 6px;
+  overflow-wrap: anywhere;
   transition: color var(--transition), border-color var(--transition);
 }
 .contact-email:hover {
@@ -624,6 +628,8 @@ section { padding: 140px 0; }
 .lightbox {
   position: fixed;
   inset: 0;
+  height: 100vh;
+  height: 100dvh;
   z-index: 200;
   display: flex;
   align-items: center;
@@ -633,6 +639,7 @@ section { padding: 140px 0; }
   visibility: hidden;
   transition: opacity var(--transition), visibility var(--transition);
   padding: 24px;
+  overflow-y: auto;
 }
 .lightbox.open {
   opacity: 1;
@@ -761,7 +768,8 @@ section { padding: 140px 0; }
   .about-grid {
     grid-template-columns: 1fr;
   }
-  .about-photo { max-width: 320px; margin: 0 auto; }
+  .about-photo { max-width: 320px; margin: 0 auto; order: 2; }
+  .about-copy { order: 1; }
 }
 
 @media (max-width: 720px) {
@@ -772,6 +780,7 @@ section { padding: 140px 0; }
     right: 0;
     z-index: 200;
     height: 100vh;
+    height: 100dvh;
     width: min(75vw, 320px);
     background: var(--bg-alt);
     flex-direction: column;
