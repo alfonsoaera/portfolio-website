@@ -463,6 +463,58 @@ section { padding: 140px 0; }
   max-width: 60ch;
   margin-bottom: 32px;
 }
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.lang-note {
+  font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   Brands
+   ========================================================================== */
+.brands {
+  padding: 80px 0;
+  border-top: 1px solid var(--border);
+}
+.brands-label {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.72rem;
+  color: var(--fg-muted);
+  margin: 0 0 40px;
+}
+.brands-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.brand-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 64px;
+  padding: 14px 28px;
+  background: var(--fg);
+  border-radius: 6px;
+  opacity: 0.85;
+  transition: opacity var(--transition);
+}
+.brand-card:hover {
+  opacity: 1;
+}
+.brand-card img {
+  height: 100%;
+  width: auto;
+  max-width: 120px;
+  object-fit: contain;
+}
 
 /* ==========================================================================
    Contact
