@@ -166,6 +166,17 @@ document.querySelectorAll('.grid-thumb').forEach((thumb) => {
   thumb.addEventListener('click', () => openLightboxFor(thumb));
 });
 
+// Let a normal (vertical) scroll gesture scroll the campaign row sideways
+lightboxCampaignList.addEventListener(
+  'wheel',
+  (e) => {
+    if (e.deltaY === 0) return;
+    e.preventDefault();
+    lightboxCampaignList.scrollLeft += e.deltaY;
+  },
+  { passive: false }
+);
+
 function closeLightbox() {
   lightbox.classList.remove('open');
   lightbox.setAttribute('aria-hidden', 'true');

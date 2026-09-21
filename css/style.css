@@ -687,12 +687,28 @@ section { padding: 140px 0; }
 }
 .lightbox-campaign-list {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 16px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 6px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+.lightbox-campaign-list::-webkit-scrollbar {
+  height: 6px;
+}
+.lightbox-campaign-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+.lightbox-campaign-list::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 999px;
 }
 .lightbox-campaign-item {
   display: flex;
   flex-direction: column;
+  flex: 0 0 auto;
   gap: 8px;
   width: 140px;
   text-align: left;
