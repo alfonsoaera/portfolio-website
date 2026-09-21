@@ -66,9 +66,9 @@ assets/video/        Put a self-hosted reel file here (e.g. reel.mp4)
    **Roles** — separate from category, the small pills under each tile's
    title are your actual credit(s) on that piece. Add/remove
    `<span class="role-tag">…</span>` elements inside the `.roles` div in
-   the `<figcaption>` — any number, any wording (Director, Editor, Motion
-   Graphics, Colorization, VFX, Camera Operator, Cinematography, Producer,
-   etc.). They also show up automatically in the lightbox popup.
+   the `<figcaption>` — any number, any wording (Director, Assistant
+   Director, Editor, Motion Graphics, Color Grading, VFX, Camera
+   Operator, etc.). They also show up automatically in the lightbox popup.
 
 4. **About photo** — swap the `.about-photo` placeholder div for an `<img>`
    pointing at a photo in `assets/images/`.
