@@ -204,6 +204,12 @@
         thumbnail on its grid tile (no image upload needed) — see
         js/main.js. Self-hosted/Vimeo videos and pieces with no data-video
         still fall back to the plain text placeholder.
+
+        To use your own image instead (sharper than YouTube's auto
+        thumbnail, or for a piece you want a different thumbnail for), drop
+        a file in assets/images/work/ and add data-thumb="assets/images/work/your-file.jpg"
+        to the button — it always overrides the auto YouTube thumbnail when
+        present. Any image size works; it gets cropped to fit.
       -->
       <figure class="grid-item reveal" data-category="director" data-featured="true">
         <button class="grid-thumb" data-title="Geno Zabata - Demasiado" data-client="Geno Zabata" data-desc="A music video filmed with no budget and minimal equipment. Just 3 people, a camera, a light, and whatever props we could find." data-category="Director" data-video="https://www.youtube.com/embed/Kft58qige_U" data-campaign="Music Videos">

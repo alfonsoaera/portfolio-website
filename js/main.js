@@ -102,18 +102,35 @@ document.querySelectorAll('.hero-chip').forEach((chip) => {
 });
 
 // ==========================================================================
-// Auto thumbnails for YouTube-embedded pieces
+// Grid thumbnails: a manually uploaded data-thumb always wins; otherwise
+// auto-pull the YouTube thumbnail at the highest resolution available.
 // ==========================================================================
-document.querySelectorAll('.grid-thumb[data-video]').forEach((thumb) => {
-  const match = thumb.dataset.video.match(/youtube\.com\/embed\/([^?&/]+)/);
-  if (!match) return;
+document.querySelectorAll('.grid-thumb[data-thumb], .grid-thumb[data-video]').forEach((thumb) => {
   const img = document.createElement('img');
   img.className = 'grid-thumb-img';
   img.loading = 'lazy';
   img.alt = thumb.dataset.title || '';
   img.addEventListener('load', () => thumb.classList.add('has-thumb'));
-  img.addEventListener('error', () => img.remove());
-  img.src = `https://img.youtube.com/vi/${match[1]}/mqdefault.jpg`;
+
+  if (thumb.dataset.thumb) {
+    img.addEventListener('error', () => img.remove());
+    img.src = thumb.dataset.thumb;
+    thumb.prepend(img);
+    return;
+  }
+
+  const match = thumb.dataset.video.match(/youtube\.com\/embed\/([^?&/]+)/);
+  if (!match) return;
+  const videoId = match[1];
+  // maxresdefault (1280x720) isn't generated for every video — if it 404s,
+  // fall back to hqdefault (480x360, always available) before giving up.
+  let triedFallback = false;
+  img.addEventListener('error', () => {
+    if (triedFallback) { img.remove(); return; }
+    triedFallback = true;
+    img.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+  });
+  img.src = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
   thumb.prepend(img);
 });
 
