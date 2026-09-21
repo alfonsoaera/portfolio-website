@@ -562,6 +562,97 @@ section { padding: 140px 0; }
 }
 
 /* ==========================================================================
+   Brand gallery — clicking a brand logo opens this, filtered to every
+   portfolio piece with a matching data-client. Picking a piece inside
+   closes this overlay and opens the normal lightbox on it (not stacked).
+   ========================================================================== */
+.brand-gallery {
+  position: fixed;
+  inset: 0;
+  height: 100vh;
+  height: 100dvh;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 10, 10, 0.95);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition), visibility var(--transition);
+  padding: 24px;
+  overflow-y: auto;
+}
+.brand-gallery.open {
+  opacity: 1;
+  visibility: visible;
+}
+.brand-gallery-inner {
+  max-width: 900px;
+  width: 100%;
+}
+.brand-gallery-label {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.7rem;
+  color: var(--fg-muted);
+  margin: 0 0 8px;
+}
+.brand-gallery-inner h3 {
+  font-size: 1.8rem;
+  margin-bottom: 28px;
+}
+.brand-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+.brand-gallery-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
+}
+.brand-gallery-thumb {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: linear-gradient(135deg, #1c1c1c, #262626);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fg-muted);
+  font-size: 0.8rem;
+  overflow: hidden;
+  transition: border-color var(--transition);
+}
+.brand-gallery-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.brand-gallery-thumb img ~ .thumb-fallback {
+  display: none;
+}
+.brand-gallery-item-title {
+  font-size: 0.9rem;
+  color: var(--fg-muted);
+  transition: color var(--transition);
+}
+.brand-gallery-item:hover .brand-gallery-thumb { border-color: var(--accent); }
+.brand-gallery-item:hover .brand-gallery-item-title { color: var(--fg); }
+.brand-gallery-empty {
+  color: var(--fg-muted);
+}
+.brand-gallery-close {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  font-size: 2rem;
+  color: var(--fg);
+  line-height: 1;
+}
+
+/* ==========================================================================
    Contact
    ========================================================================== */
 .contact { text-align: center; }

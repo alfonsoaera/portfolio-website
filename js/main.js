@@ -193,6 +193,62 @@ document.addEventListener('keydown', (e) => {
 });
 
 // ==========================================================================
+// Brand gallery — click a brand logo to see every piece for that client
+// ==========================================================================
+const brandGallery = document.getElementById('brandGallery');
+const brandGalleryClose = document.getElementById('brandGalleryClose');
+const brandGalleryTitle = document.getElementById('brandGalleryTitle');
+const brandGalleryGrid = document.getElementById('brandGalleryGrid');
+const brandGalleryEmpty = document.getElementById('brandGalleryEmpty');
+
+function openBrandGallery(client) {
+  const matches = [...document.querySelectorAll('.grid-thumb[data-client]')].filter(
+    (thumb) => thumb.dataset.client === client
+  );
+
+  brandGalleryTitle.textContent = client;
+  brandGalleryGrid.innerHTML = '';
+  brandGalleryEmpty.hidden = matches.length > 0;
+
+  matches.forEach((thumb) => {
+    const item = document.createElement('button');
+    item.className = 'brand-gallery-item';
+    item.type = 'button';
+    item.innerHTML = `
+      <span class="brand-gallery-thumb">${thumb.innerHTML}</span>
+      <span class="brand-gallery-item-title">${thumb.dataset.title || ''}</span>
+    `;
+    item.addEventListener('click', () => {
+      closeBrandGallery();
+      openLightboxFor(thumb);
+    });
+    brandGalleryGrid.appendChild(item);
+  });
+
+  brandGallery.classList.add('open');
+  brandGallery.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeBrandGallery() {
+  brandGallery.classList.remove('open');
+  brandGallery.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+
+document.querySelectorAll('.brand-card[data-client]').forEach((card) => {
+  card.addEventListener('click', () => openBrandGallery(card.dataset.client));
+});
+
+brandGalleryClose.addEventListener('click', closeBrandGallery);
+brandGallery.addEventListener('click', (e) => {
+  if (e.target === brandGallery) closeBrandGallery();
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && brandGallery.classList.contains('open')) closeBrandGallery();
+});
+
+// ==========================================================================
 // Language toggle (Spanish default, English optional)
 // ==========================================================================
 const langOptions = document.querySelectorAll('.lang-option');

@@ -179,7 +179,10 @@
 
         CLIENT: add a data-client="…" attribute to the button to show the
         client/brand name under the title in the lightbox popup. Leave it
-        off for pieces with no client to credit.
+        off for pieces with no client to credit. If the client has a logo
+        in the Brands section below, use the EXACT same spelling as that
+        logo's data-client — clicking a brand logo opens a gallery of every
+        piece whose data-client matches it (see BRANDS section, js/main.js).
 
         THUMBNAILS: any piece with a data-video pointing at a
         youtube.com/embed/… URL automatically shows that video's YouTube
@@ -731,10 +734,10 @@
   <div class="container">
     <p class="brands-label reveal" data-es="Marcas con las que he colaborado" data-en="Brands I've collaborated with">Marcas con las que he colaborado</p>
     <div class="brands-grid reveal">
-      <div class="brand-card brand-card-triple-s"><img src="assets/images/brands/triple-s.webp" alt="Triple-S"></div>
-      <div class="brand-card"><img src="assets/images/brands/popular.webp" alt="Popular"></div>
-      <div class="brand-card brand-card-texaco"><img src="assets/images/brands/texaco.png" alt="Texaco"></div>
-      <div class="brand-card brand-card-pepsi"><img src="assets/images/brands/pepsi.webp" alt="Pepsi"></div>
+      <button class="brand-card brand-card-triple-s" type="button" data-client="Triple-S"><img src="assets/images/brands/triple-s.webp" alt="Triple-S"></button>
+      <button class="brand-card" type="button" data-client="Popular"><img src="assets/images/brands/popular.webp" alt="Popular"></button>
+      <button class="brand-card brand-card-texaco" type="button" data-client="Texaco"><img src="assets/images/brands/texaco.png" alt="Texaco"></button>
+      <button class="brand-card brand-card-pepsi" type="button" data-client="Pepsi"><img src="assets/images/brands/pepsi.webp" alt="Pepsi"></button>
     </div>
   </div>
 </section>
@@ -786,6 +789,17 @@
     <a href="#top" class="back-to-top" data-es="Volver arriba ↑" data-en="Back to top ↑">Volver arriba ↑</a>
   </div>
 </footer>
+
+<!-- ============ BRAND GALLERY ============ -->
+<div class="brand-gallery" id="brandGallery" aria-hidden="true">
+  <div class="brand-gallery-inner">
+    <button class="brand-gallery-close" id="brandGalleryClose" aria-label="Close">&times;</button>
+    <p class="brand-gallery-label" data-es="Trabajo para" data-en="Work for">Trabajo para</p>
+    <h3 id="brandGalleryTitle"></h3>
+    <div class="brand-gallery-grid" id="brandGalleryGrid"></div>
+    <p class="brand-gallery-empty" id="brandGalleryEmpty" hidden data-es="Todavía no hay piezas publicadas para esta marca — vuelve pronto." data-en="No pieces published for this brand yet — check back soon.">Todavía no hay piezas publicadas para esta marca — vuelve pronto.</p>
+  </div>
+</div>
 
 <!-- ============ LIGHTBOX ============ -->
 <div class="lightbox" id="lightbox" aria-hidden="true">
