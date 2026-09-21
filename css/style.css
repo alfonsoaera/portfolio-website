@@ -109,6 +109,10 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; margin: 0; }
   align-items: center;
 }
 .logo-mark {
+  /* z-index so the mark paints above .logo-dino — the dino needs to look
+     like it's emerging from behind the mark, not sitting in front of it. */
+  position: relative;
+  z-index: 1;
   display: block;
   width: 36px;
   height: 36px;
@@ -498,6 +502,10 @@ section { padding: 140px 0; }
   cursor: pointer;
 }
 .about-photo-frame {
+  /* z-index so the photo paints above .about-photo-dino — the dino needs
+     to look like it's emerging from behind the photo, not sitting on it. */
+  position: relative;
+  z-index: 1;
   width: 100%;
   height: 100%;
   background: linear-gradient(160deg, #1c1c1c, #262626);
@@ -516,10 +524,10 @@ section { padding: 140px 0; }
 .about-photo-dino {
   position: absolute;
   top: 10%;
-  left: -26px;
-  width: 96px;
-  height: 96px;
-  stroke-width: 12px;
+  left: -30px;
+  width: 64px;
+  height: 64px;
+  stroke-width: 16px;
   color: var(--accent);
   pointer-events: none;
   opacity: 0;
@@ -572,7 +580,7 @@ section { padding: 140px 0; }
   /* Bigger peek target now that there's a full tall photo to hide behind. */
   .about-photo-dino {
     top: 8%;
-    left: -36px;
+    left: -75px;
     width: 150px;
     height: 150px;
     stroke-width: 8px;
