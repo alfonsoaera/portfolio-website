@@ -180,7 +180,101 @@
         CLIENT: add a data-client="…" attribute to the button to show the
         client/brand name under the title in the lightbox popup. Leave it
         off for pieces with no client to credit.
+
+        THUMBNAILS: any piece with a data-video pointing at a
+        youtube.com/embed/… URL automatically shows that video's YouTube
+        thumbnail on its grid tile (no image upload needed) — see
+        js/main.js. Self-hosted/Vimeo videos and pieces with no data-video
+        still fall back to the plain text placeholder.
       -->
+      <figure class="grid-item reveal" data-category="director" data-featured="true">
+        <button class="grid-thumb" data-title="Geno Zabata - Demasiado" data-client="Geno Zabata" data-desc="A music video filmed with no budget and minimal equipment. Just 3 people, a camera, a light, and whatever props we could find." data-category="Director" data-video="https://www.youtube.com/embed/Kft58qige_U" data-campaign="Music Videos">
+          <span class="thumb-fallback">Director</span>
+        </button>
+        <figcaption>
+          <div class="figcaption-top">
+            <h3>Geno Zabata - Demasiado</h3>
+            <span class="tag">Director</span>
+          </div>
+          <div class="roles">
+            <span class="role-tag">Director</span>
+            <span class="role-tag">Editor</span>
+            <span class="role-tag">Color Grading</span>
+            <span class="role-tag">Camera Operator</span>
+          </div>
+        </figcaption>
+      </figure>
+
+      <figure class="grid-item reveal" data-category="director" data-featured="true">
+        <button class="grid-thumb" data-title="Salud Física con Cora" data-client="Triple-S" data-desc="Part of an awareness campaign for Triple-S Advantage members to care for their health using a brand mascot." data-category="Director" data-video="https://www.youtube.com/embed/s0GCiuqYYco" data-campaign="MA Estrellas 2025">
+          <span class="thumb-fallback">Director</span>
+        </button>
+        <figcaption>
+          <div class="figcaption-top">
+            <h3>Salud Física con Cora</h3>
+            <span class="tag">Director</span>
+          </div>
+          <div class="roles">
+            <span class="role-tag">Director</span>
+            <span class="role-tag">Editor</span>
+            <span class="role-tag">Motion Graphics</span>
+          </div>
+        </figcaption>
+      </figure>
+
+      <figure class="grid-item reveal" data-category="director" data-featured="true">
+        <button class="grid-thumb" data-title="Iraida - Platino Plus" data-client="Triple-S" data-desc="Part of a supporting retail campaign about making healthy choices with Triple-S Advantage" data-category="Director" data-video="https://www.youtube.com/embed/Ku9xWgnJX7g" data-campaign="Ayer, Hoy y Siempre, ¡Elige Salud!">
+          <span class="thumb-fallback">Director</span>
+        </button>
+        <figcaption>
+          <div class="figcaption-top">
+            <h3>Iraida - Platino Plus</h3>
+            <span class="tag">Director</span>
+          </div>
+          <div class="roles">
+            <span class="role-tag">Director</span>
+            <span class="role-tag">Editor</span>
+            <span class="role-tag">Motion Graphics</span>
+            <span class="role-tag">VFX</span>
+          </div>
+        </figcaption>
+      </figure>
+
+      <figure class="grid-item reveal" data-category="director motion">
+        <button class="grid-thumb" data-title="Kraft Heinz Sabe a Baloncesto" data-client="Kraft Heinz" data-desc="Part of a campaign connecting Kraft Heinz to key moments in Puerto Rico's history and culture" data-category="Director / Motion Graphics" data-video="https://www.youtube.com/embed/JzzKHL2IkGo" data-campaign="Kraft Heinz Sabe A…">
+          <span class="thumb-fallback">Director / Motion Graphics</span>
+        </button>
+        <figcaption>
+          <div class="figcaption-top">
+            <h3>Kraft Heinz Sabe a Baloncesto</h3>
+            <span class="tag">Director / Motion Graphics</span>
+          </div>
+          <div class="roles">
+            <span class="role-tag">Director</span>
+            <span class="role-tag">Editor</span>
+            <span class="role-tag">Motion Graphics</span>
+            <span class="role-tag">Color Grading</span>
+          </div>
+        </figcaption>
+      </figure>
+
+      <figure class="grid-item reveal" data-category="director">
+        <button class="grid-thumb" data-title="José Luis - Salud Física" data-client="Triple-S" data-desc="Part of a testimonial campaign pushing Triple-S members to speak to their doctors about their health." data-category="Director" data-video="https://www.youtube.com/embed/xlueZ-P8hAk" data-campaign="HOS 2026">
+          <span class="thumb-fallback">Director</span>
+        </button>
+        <figcaption>
+          <div class="figcaption-top">
+            <h3>José Luis - Salud Física</h3>
+            <span class="tag">Director</span>
+          </div>
+          <div class="roles">
+            <span class="role-tag">Director</span>
+            <span class="role-tag">Editor</span>
+            <span class="role-tag">Motion Graphics</span>
+          </div>
+        </figcaption>
+      </figure>
+
       <figure class="grid-item reveal" data-category="director">
         <button class="grid-thumb" data-title="Edwin - Sin Referido" data-client="Triple-S" data-desc="Part of a supporting retail campaign about making healthy choices with Triple-S Advantage" data-category="Director" data-video="https://www.youtube.com/embed/4oG_V5rn6Bo" data-campaign="Ayer, Hoy y Siempre, ¡Elige Salud!">
           <span class="thumb-fallback">Director</span>
@@ -236,24 +330,6 @@
       </figure>
 
       <figure class="grid-item reveal" data-category="director">
-        <button class="grid-thumb" data-title="Iraida - Platino Plus" data-client="Triple-S" data-desc="Part of a supporting retail campaign about making healthy choices with Triple-S Advantage" data-category="Director" data-video="https://www.youtube.com/embed/Ku9xWgnJX7g" data-campaign="Ayer, Hoy y Siempre, ¡Elige Salud!">
-          <span class="thumb-fallback">Director</span>
-        </button>
-        <figcaption>
-          <div class="figcaption-top">
-            <h3>Iraida - Platino Plus</h3>
-            <span class="tag">Director</span>
-          </div>
-          <div class="roles">
-            <span class="role-tag">Director</span>
-            <span class="role-tag">Editor</span>
-            <span class="role-tag">Motion Graphics</span>
-            <span class="role-tag">VFX</span>
-          </div>
-        </figcaption>
-      </figure>
-
-      <figure class="grid-item reveal" data-category="director">
         <button class="grid-thumb" data-title="Nancy - Salus" data-client="Triple-S" data-desc="Part of a supporting retail campaign about making healthy choices with Triple-S Advantage" data-category="Director" data-video="https://www.youtube.com/embed/E_vfH6QC9Xk" data-campaign="Ayer, Hoy y Siempre, ¡Elige Salud!">
           <span class="thumb-fallback">Director</span>
         </button>
@@ -289,19 +365,56 @@
         </figcaption>
       </figure>
 
-      <figure class="grid-item reveal" data-category="director" data-featured="true">
-        <button class="grid-thumb" data-title="Salud Física con Cora" data-client="Triple-S" data-desc="Part of an awareness campaign for Triple-S Advantage members to care for their health using a brand mascot." data-category="Director" data-video="https://www.youtube.com/embed/s0GCiuqYYco" data-campaign="MA Estrellas 2025">
+      <figure class="grid-item reveal" data-category="director">
+        <button class="grid-thumb" data-title="Geno Zabata - Dark Bossa" data-client="Geno Zabata" data-desc="This music video stems from a script provided to me by the client. I gave it my treatment to achieve a vision born from collaboration." data-category="Director" data-video="https://www.youtube.com/embed/-imYPkL4CI8" data-campaign="Music Videos">
           <span class="thumb-fallback">Director</span>
         </button>
         <figcaption>
           <div class="figcaption-top">
-            <h3>Salud Física con Cora</h3>
+            <h3>Geno Zabata - Dark Bossa</h3>
             <span class="tag">Director</span>
           </div>
           <div class="roles">
             <span class="role-tag">Director</span>
             <span class="role-tag">Editor</span>
-            <span class="role-tag">Motion Graphics</span>
+            <span class="role-tag">Color Grading</span>
+            <span class="role-tag">Camera Operator</span>
+          </div>
+        </figcaption>
+      </figure>
+
+      <figure class="grid-item reveal" data-category="director">
+        <button class="grid-thumb" data-title="CherryDew - Gloom" data-client="CherryDew" data-desc="This music video was filmed in one location with limited time. Preparation goes a long way, so we were able to squeeze what was supposed to be a 6 hour shoot into 2 hours." data-category="Director" data-video="https://www.youtube.com/embed/63InMTUtKp4" data-campaign="Music Videos">
+          <span class="thumb-fallback">Director</span>
+        </button>
+        <figcaption>
+          <div class="figcaption-top">
+            <h3>CherryDew - Gloom</h3>
+            <span class="tag">Director</span>
+          </div>
+          <div class="roles">
+            <span class="role-tag">Director</span>
+            <span class="role-tag">Editor</span>
+            <span class="role-tag">Color Grading</span>
+            <span class="role-tag">Camera Operator</span>
+          </div>
+        </figcaption>
+      </figure>
+
+      <figure class="grid-item reveal" data-category="director">
+        <button class="grid-thumb" data-title="Sta. Cruz - OMEN: A Live Experience" data-client="Sta. Cruz" data-desc="Music video for a live performance of Sta. Cruz's OMEN EP recorded in a local studio." data-category="Director" data-video="https://www.youtube.com/embed/ACbyA5M85K0" data-campaign="Music Videos">
+          <span class="thumb-fallback">Director</span>
+        </button>
+        <figcaption>
+          <div class="figcaption-top">
+            <h3>Sta. Cruz - OMEN: A Live Experience</h3>
+            <span class="tag">Director</span>
+          </div>
+          <div class="roles">
+            <span class="role-tag">Director</span>
+            <span class="role-tag">Editor</span>
+            <span class="role-tag">Color Grading</span>
+            <span class="role-tag">Camera Operator</span>
           </div>
         </figcaption>
       </figure>
@@ -336,75 +449,6 @@
             <span class="role-tag">Director</span>
             <span class="role-tag">Editor</span>
             <span class="role-tag">Motion Graphics</span>
-          </div>
-        </figcaption>
-      </figure>
-
-      <figure class="grid-item reveal" data-category="director">
-        <button class="grid-thumb" data-title="José Luis - Salud Física" data-client="Triple-S" data-desc="Part of a testimonial campaign pushing Triple-S members to speak to their doctors about their health." data-category="Director" data-video="https://www.youtube.com/embed/xlueZ-P8hAk" data-campaign="HOS 2026">
-          <span class="thumb-fallback">Director</span>
-        </button>
-        <figcaption>
-          <div class="figcaption-top">
-            <h3>José Luis - Salud Física</h3>
-            <span class="tag">Director</span>
-          </div>
-          <div class="roles">
-            <span class="role-tag">Director</span>
-            <span class="role-tag">Editor</span>
-            <span class="role-tag">Motion Graphics</span>
-          </div>
-        </figcaption>
-      </figure>
-
-      <figure class="grid-item reveal" data-category="director">
-        <button class="grid-thumb" data-title="Nieves - Temas de Salud" data-client="Triple-S" data-desc="Part of a testimonial campaign pushing Triple-S members to speak to their doctors about their health." data-category="Director" data-video="https://www.youtube.com/embed/D9ZFvgAYTes" data-campaign="HOS 2026">
-          <span class="thumb-fallback">Director</span>
-        </button>
-        <figcaption>
-          <div class="figcaption-top">
-            <h3>Nieves - Temas de Salud</h3>
-            <span class="tag">Director</span>
-          </div>
-          <div class="roles">
-            <span class="role-tag">Director</span>
-            <span class="role-tag">Editor</span>
-            <span class="role-tag">Motion Graphics</span>
-          </div>
-        </figcaption>
-      </figure>
-
-      <figure class="grid-item reveal" data-category="director">
-        <button class="grid-thumb" data-title="Sonia - Salud Mental" data-client="Triple-S" data-desc="Part of a testimonial campaign pushing Triple-S members to speak to their doctors about their health." data-category="Director" data-video="https://www.youtube.com/embed/35WVZxjSEu8" data-campaign="HOS 2026">
-          <span class="thumb-fallback">Director</span>
-        </button>
-        <figcaption>
-          <div class="figcaption-top">
-            <h3>Sonia - Salud Mental</h3>
-            <span class="tag">Director</span>
-          </div>
-          <div class="roles">
-            <span class="role-tag">Director</span>
-            <span class="role-tag">Editor</span>
-            <span class="role-tag">Motion Graphics</span>
-          </div>
-        </figcaption>
-      </figure>
-
-      <figure class="grid-item reveal" data-category="director motion">
-        <button class="grid-thumb" data-title="Kraft Heinz Sabe a Baloncesto" data-client="Kraft Heinz" data-desc="Part of a campaign connecting Kraft Heinz to key moments in Puerto Rico's history and culture" data-category="Director / Motion Graphics" data-video="https://www.youtube.com/embed/JzzKHL2IkGo" data-campaign="Kraft Heinz Sabe A…">
-          <span class="thumb-fallback">Director / Motion Graphics</span>
-        </button>
-        <figcaption>
-          <div class="figcaption-top">
-            <h3>Kraft Heinz Sabe a Baloncesto</h3>
-            <span class="tag">Director / Motion Graphics</span>
-          </div>
-          <div class="roles">
-            <span class="role-tag">Director</span>
-            <span class="role-tag">Editor</span>
-            <span class="role-tag">Motion Graphics</span>
-            <span class="role-tag">Color Grading</span>
           </div>
         </figcaption>
       </figure>
@@ -463,74 +507,36 @@
         </figcaption>
       </figure>
 
-      <figure class="grid-item reveal" data-category="director" data-featured="true">
-        <button class="grid-thumb" data-title="Geno Zabata - Demasiado" data-client="Geno Zabata" data-desc="A music video filmed with no budget and minimal equipment. Just 3 people, a camera, a light, and whatever props we could find." data-category="Director" data-video="https://www.youtube.com/embed/Kft58qige_U" data-campaign="Music Videos">
+      <figure class="grid-item reveal" data-category="director">
+        <button class="grid-thumb" data-title="Nieves - Temas de Salud" data-client="Triple-S" data-desc="Part of a testimonial campaign pushing Triple-S members to speak to their doctors about their health." data-category="Director" data-video="https://www.youtube.com/embed/D9ZFvgAYTes" data-campaign="HOS 2026">
           <span class="thumb-fallback">Director</span>
         </button>
         <figcaption>
           <div class="figcaption-top">
-            <h3>Geno Zabata - Demasiado</h3>
+            <h3>Nieves - Temas de Salud</h3>
             <span class="tag">Director</span>
           </div>
           <div class="roles">
             <span class="role-tag">Director</span>
             <span class="role-tag">Editor</span>
-            <span class="role-tag">Color Grading</span>
-            <span class="role-tag">Camera Operator</span>
+            <span class="role-tag">Motion Graphics</span>
           </div>
         </figcaption>
       </figure>
 
       <figure class="grid-item reveal" data-category="director">
-        <button class="grid-thumb" data-title="Geno Zabata - Dark Bossa" data-client="Geno Zabata" data-desc="This music video stems from a script provided to me by the client. I gave it my treatment to achieve a vision born from collaboration." data-category="Director" data-video="https://www.youtube.com/embed/-imYPkL4CI8" data-campaign="Music Videos">
+        <button class="grid-thumb" data-title="Sonia - Salud Mental" data-client="Triple-S" data-desc="Part of a testimonial campaign pushing Triple-S members to speak to their doctors about their health." data-category="Director" data-video="https://www.youtube.com/embed/35WVZxjSEu8" data-campaign="HOS 2026">
           <span class="thumb-fallback">Director</span>
         </button>
         <figcaption>
           <div class="figcaption-top">
-            <h3>Geno Zabata - Dark Bossa</h3>
+            <h3>Sonia - Salud Mental</h3>
             <span class="tag">Director</span>
           </div>
           <div class="roles">
             <span class="role-tag">Director</span>
             <span class="role-tag">Editor</span>
-            <span class="role-tag">Color Grading</span>
-            <span class="role-tag">Camera Operator</span>
-          </div>
-        </figcaption>
-      </figure>
-
-      <figure class="grid-item reveal" data-category="director">
-        <button class="grid-thumb" data-title="CherryDew - Gloom" data-client="CherryDew" data-desc="This music video was filmed in one location with limited time. Preparation goes a long way, so we were able to squeeze what was supposed to be a 6 hour shoot into 2 hours." data-category="Director" data-video="https://www.youtube.com/embed/63InMTUtKp4" data-campaign="Music Videos">
-          <span class="thumb-fallback">Director</span>
-        </button>
-        <figcaption>
-          <div class="figcaption-top">
-            <h3>CherryDew - Gloom</h3>
-            <span class="tag">Director</span>
-          </div>
-          <div class="roles">
-            <span class="role-tag">Director</span>
-            <span class="role-tag">Editor</span>
-            <span class="role-tag">Color Grading</span>
-            <span class="role-tag">Camera Operator</span>
-          </div>
-        </figcaption>
-      </figure>
-
-      <figure class="grid-item reveal" data-category="director">
-        <button class="grid-thumb" data-title="Sta. Cruz - OMEN: A Live Experience" data-client="Sta. Cruz" data-desc="Music video for a live performance of Sta. Cruz's OMEN EP recorded in a local studio." data-category="Director" data-video="https://www.youtube.com/embed/ACbyA5M85K0" data-campaign="Music Videos">
-          <span class="thumb-fallback">Director</span>
-        </button>
-        <figcaption>
-          <div class="figcaption-top">
-            <h3>Sta. Cruz - OMEN: A Live Experience</h3>
-            <span class="tag">Director</span>
-          </div>
-          <div class="roles">
-            <span class="role-tag">Director</span>
-            <span class="role-tag">Editor</span>
-            <span class="role-tag">Color Grading</span>
-            <span class="role-tag">Camera Operator</span>
+            <span class="role-tag">Motion Graphics</span>
           </div>
         </figcaption>
       </figure>

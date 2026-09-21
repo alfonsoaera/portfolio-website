@@ -392,6 +392,17 @@ section { padding: 140px 0; }
   font-size: 1.1rem;
   color: var(--fg-muted);
   letter-spacing: 0.05em;
+  position: relative;
+}
+.grid-thumb-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.grid-thumb.has-thumb .thumb-fallback {
+  display: none;
 }
 .grid-item figcaption {
   margin-top: 16px;

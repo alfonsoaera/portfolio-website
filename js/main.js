@@ -75,6 +75,22 @@ document.querySelectorAll('.hero-chip').forEach((chip) => {
 });
 
 // ==========================================================================
+// Auto thumbnails for YouTube-embedded pieces
+// ==========================================================================
+document.querySelectorAll('.grid-thumb[data-video]').forEach((thumb) => {
+  const match = thumb.dataset.video.match(/youtube\.com\/embed\/([^?&/]+)/);
+  if (!match) return;
+  const img = document.createElement('img');
+  img.className = 'grid-thumb-img';
+  img.loading = 'lazy';
+  img.alt = thumb.dataset.title || '';
+  img.addEventListener('load', () => thumb.classList.add('has-thumb'));
+  img.addEventListener('error', () => img.remove());
+  img.src = `https://img.youtube.com/vi/${match[1]}/hqdefault.jpg`;
+  thumb.prepend(img);
+});
+
+// ==========================================================================
 // Lightbox
 // ==========================================================================
 const lightbox = document.getElementById('lightbox');

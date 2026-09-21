@@ -85,6 +85,12 @@ assets/video/        Put a self-hosted reel file here (e.g. reel.mp4)
    the client/brand name under the title in the lightbox popup. Leave it
    off for pieces with no client to credit.
 
+   **Thumbnails** — any piece whose `data-video` points at a
+   `youtube.com/embed/…` URL automatically shows that video's YouTube
+   thumbnail on its grid tile, no image upload needed. Self-hosted or
+   Vimeo videos, and pieces with no `data-video`, still show the plain
+   text placeholder.
+
 4. **About photo** — swap the `.about-photo` placeholder div for an `<img>`
    pointing at a photo in `assets/images/`.
 
