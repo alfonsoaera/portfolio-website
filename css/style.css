@@ -766,17 +766,26 @@ section { padding: 140px 0; }
    ========================================================================== */
 @media (max-width: 860px) {
   .about-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1.6fr;
+    grid-template-areas:
+      "title title"
+      "photo bio"
+      "skills1 skills1"
+      "skills2 skills2";
+    gap: 20px 16px;
+    align-items: start;
   }
   /* Let .about-copy's children become direct grid items so the photo can
-     be reordered to sit between the bio and the skill pills. */
+     sit alongside the bio instead of only being a sibling of the whole
+     text block. */
   .about-copy {
     display: contents;
   }
-  .about-copy .section-title { order: 1; }
-  .about-copy p { order: 2; }
-  .about-photo { order: 3; max-width: 320px; margin: 0 auto; }
-  .about-copy .skills-list { order: 4; }
+  .about-copy .section-title { grid-area: title; }
+  .about-photo { grid-area: photo; max-width: none; margin: 0; }
+  .about-copy p { grid-area: bio; margin-bottom: 0; }
+  .about-copy .skills-list:nth-of-type(1) { grid-area: skills1; margin-top: 4px; }
+  .about-copy .skills-list:nth-of-type(2) { grid-area: skills2; }
 }
 
 @media (max-width: 720px) {
