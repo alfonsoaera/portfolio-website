@@ -657,24 +657,24 @@ section { padding: 140px 0; }
    closes this overlay and opens the normal lightbox on it (not stacked).
    ========================================================================== */
 .brand-gallery {
+  /* No flexbox here on purpose: flex cross-axis centering (align-items)
+     on a scrollable container clips/traps content taller than the
+     viewport on some mobile browsers, even when it "should" work per
+     spec. Plain block layout + margin:auto on the inner wrapper (below)
+     centers short content the same way but scrolls reliably when it
+     overflows. */
   position: fixed;
   inset: 0;
   height: 100vh;
   height: 100dvh;
   z-index: 200;
-  display: flex;
-  /* align-items: center clips content taller than the viewport — the
-     top becomes unreachable even at scrollTop 0, since centering shifts
-     the box up by an offset scrolling can't recover. flex-start plus
-     auto margins on the inner wrapper still centers it when short. */
-  align-items: flex-start;
-  justify-content: center;
   background: rgba(10, 10, 10, 0.95);
   opacity: 0;
   visibility: hidden;
   transition: opacity var(--transition), visibility var(--transition);
   padding: 24px;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 .brand-gallery.open {
   opacity: 1;
@@ -683,7 +683,7 @@ section { padding: 140px 0; }
 .brand-gallery-inner {
   max-width: 900px;
   width: 100%;
-  margin: auto 0;
+  margin: 0 auto;
 }
 .brand-gallery-label {
   text-transform: uppercase;
@@ -866,22 +866,20 @@ section { padding: 140px 0; }
    Lightbox
    ========================================================================== */
 .lightbox {
+  /* No flexbox here on purpose — see the matching comment on
+     .brand-gallery for why. */
   position: fixed;
   inset: 0;
   height: 100vh;
   height: 100dvh;
   z-index: 200;
-  display: flex;
-  /* align-items: center clips content taller than the viewport — the top
-     becomes unreachable even at scrollTop 0 (same fix as .brand-gallery). */
-  align-items: flex-start;
-  justify-content: center;
   background: rgba(10, 10, 10, 0.95);
   opacity: 0;
   visibility: hidden;
   transition: opacity var(--transition), visibility var(--transition);
   padding: 24px;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 .lightbox.open {
   opacity: 1;
@@ -890,7 +888,7 @@ section { padding: 140px 0; }
 .lightbox-inner {
   max-width: 720px;
   width: 100%;
-  margin: auto 0;
+  margin: 0 auto;
 }
 .lightbox-media {
   aspect-ratio: 16 / 9;
