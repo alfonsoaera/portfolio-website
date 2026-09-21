@@ -544,6 +544,13 @@ section { padding: 140px 0; }
   width: auto;
   object-fit: contain;
 }
+/* Triple-S's mark is thin, pale-blue lines with a lot of internal negative
+   space, so at the shared card size it reads as much lighter/emptier than
+   the bolder logos next to it — render it larger for comparable visual
+   weight without altering the source file. */
+.brand-card-triple-s {
+  height: 82px;
+}
 
 /* ==========================================================================
    Contact
