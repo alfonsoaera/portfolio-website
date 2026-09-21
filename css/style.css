@@ -551,6 +551,16 @@ section { padding: 140px 0; }
 .brand-card-triple-s {
   height: 82px;
 }
+/* Texaco and Pepsi are icon-led badge marks — most of their file height is
+   the circular icon, and the actual wordmark is a small band inside it
+   (measured: ~14% of height for Texaco, ~19% for Pepsi, vs ~90%+ for the
+   text-led Popular/Triple-S marks). Scaling to match text height exactly
+   would blow the badges up 5-6x, so this is a capped, judgment-based
+   boost instead — enough to close the gap without dominating the row. */
+.brand-card-texaco,
+.brand-card-pepsi {
+  height: 108px;
+}
 
 /* ==========================================================================
    Contact
