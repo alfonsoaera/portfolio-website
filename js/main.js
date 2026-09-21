@@ -57,7 +57,8 @@ const gridItems = document.querySelectorAll('.grid-item');
 function applyFilter(filter) {
   filterButtons.forEach((b) => b.classList.toggle('active', b.dataset.filter === filter));
   gridItems.forEach((item) => {
-    const match = filter === 'featured' ? item.dataset.featured === 'true' : item.dataset.category === filter;
+    const categories = item.dataset.category.split(/\s+/);
+    const match = filter === 'featured' ? item.dataset.featured === 'true' : categories.includes(filter);
     item.classList.toggle('hidden', !match);
   });
 }

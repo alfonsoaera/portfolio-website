@@ -143,6 +143,14 @@
       <!--
         Replace each figure below with your own project: change data-category, image, title and description.
 
+        MULTIPLE CATEGORIES: a piece can show up under more than one tab — set
+        data-category to a space-separated list on the <figure>, e.g.
+        data-category="director motion". It'll then appear under both the
+        Director and Motion filters (and Featured too, if data-featured="true"
+        is set). The data-category on the inner <button> is just the label
+        text shown in the lightbox when there's no video — pick whichever
+        category is most relevant, or list both, e.g. data-category="Director / Motion Graphics".
+
         For a VIDEO project (typical for Director/Editor pieces), add a data-video attribute
         to the button, pointing at either:
           - a YouTube/Vimeo embed URL, e.g. data-video="https://www.youtube.com/embed/YOUR_VIDEO_ID"

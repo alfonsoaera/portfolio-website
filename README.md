@@ -40,6 +40,14 @@ assets/video/        Put a self-hosted reel file here (e.g. reel.mp4)
    `social`, or `motion`) so the filter buttons work, and update the
    matching `data-category` label on the button for the lightbox.
 
+   **Multiple categories** — a piece can appear under more than one tab.
+   Give the `<figure>` a space-separated `data-category`, e.g.
+   `data-category="director motion"`, and it'll show up under both the
+   Director and Motion filters (as well as Featured, if flagged). The
+   button's `data-category` is just the label text shown in the lightbox
+   when there's no video, so pick the most relevant one or combine them,
+   e.g. `data-category="Director / Motion Graphics"`.
+
    To make a tile play a **video** when clicked (the default for all four
    categories currently), add a `data-video` attribute to the button:
    ```html
