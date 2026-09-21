@@ -81,6 +81,10 @@ assets/video/        Put a self-hosted reel file here (e.g. reel.mp4)
    Director, Editor, Motion Graphics, Color Grading, VFX, Camera
    Operator, etc.). They also show up automatically in the lightbox popup.
 
+   **Client** — add a `data-client="…"` attribute to the button to show
+   the client/brand name under the title in the lightbox popup. Leave it
+   off for pieces with no client to credit.
+
 4. **About photo** — swap the `.about-photo` placeholder div for an `<img>`
    pointing at a photo in `assets/images/`.
 

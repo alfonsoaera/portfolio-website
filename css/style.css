@@ -647,7 +647,14 @@ section { padding: 140px 0; }
 }
 .lightbox-inner h3 {
   font-size: 1.6rem;
-  margin-bottom: 12px;
+  margin-bottom: 4px;
+}
+.lightbox-client {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--fg-muted);
+  margin: 0 0 16px;
 }
 .lightbox-inner .roles {
   margin: 0 0 16px;

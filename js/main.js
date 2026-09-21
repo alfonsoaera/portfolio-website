@@ -80,6 +80,7 @@ document.querySelectorAll('.hero-chip').forEach((chip) => {
 const lightbox = document.getElementById('lightbox');
 const lightboxClose = document.getElementById('lightboxClose');
 const lightboxTitle = document.getElementById('lightboxTitle');
+const lightboxClient = document.getElementById('lightboxClient');
 const lightboxDesc = document.getElementById('lightboxDesc');
 const lightboxMedia = document.querySelector('.lightbox-media');
 const lightboxCampaign = document.getElementById('lightboxCampaign');
@@ -94,6 +95,8 @@ function isEmbedUrl(src) {
 
 function openLightboxFor(thumb) {
   lightboxTitle.textContent = thumb.dataset.title || '';
+  lightboxClient.textContent = thumb.dataset.client || '';
+  lightboxClient.hidden = !thumb.dataset.client;
   lightboxDesc.textContent = thumb.dataset.desc || '';
 
   const roles = thumb.closest('.grid-item')?.querySelector('.roles');
