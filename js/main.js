@@ -119,35 +119,48 @@ document.querySelectorAll('.hero-chip').forEach((chip) => {
 
 // ==========================================================================
 // Grid thumbnails: a manually uploaded data-thumb wins when present, with
-// the auto YouTube thumbnail (mqdefault — small, but always available) as
-// a fallback if the manual image fails to load for any reason.
+// an auto-fetched thumbnail (YouTube's static mqdefault URL, or a Vimeo
+// oEmbed lookup) as a fallback if the manual image fails to load.
 // ==========================================================================
-document.querySelectorAll('.grid-thumb[data-thumb], .grid-thumb[data-video]').forEach((thumb) => {
+async function vimeoThumbUrl(videoId) {
+  try {
+    const res = await fetch(`https://vimeo.com/api/oembed.json?url=https://vimeo.com/${videoId}`);
+    if (!res.ok) return null;
+    const data = await res.json();
+    return data.thumbnail_url || null;
+  } catch {
+    return null;
+  }
+}
+
+document.querySelectorAll('.grid-thumb[data-thumb], .grid-thumb[data-video]').forEach(async (thumb) => {
+  const youtubeMatch = thumb.dataset.video && thumb.dataset.video.match(/youtube\.com\/embed\/([^?&/]+)/);
+  const vimeoMatch = thumb.dataset.video && thumb.dataset.video.match(/player\.vimeo\.com\/video\/(\d+)/);
+  const youtubeThumbUrl = youtubeMatch ? `https://img.youtube.com/vi/${youtubeMatch[1]}/mqdefault.jpg` : null;
+  // Vimeo has no predictable thumbnail URL like YouTube's — look it up via
+  // its public oEmbed API (CORS-enabled, no key needed) instead.
+  const autoThumbUrl = () => (youtubeThumbUrl ? Promise.resolve(youtubeThumbUrl) : vimeoMatch ? vimeoThumbUrl(vimeoMatch[1]) : Promise.resolve(null));
+
+  const src = thumb.dataset.thumb || (await autoThumbUrl());
+  if (!src) return;
+
   const img = document.createElement('img');
   img.className = 'grid-thumb-img';
   img.loading = 'lazy';
   img.alt = thumb.dataset.title || '';
   img.addEventListener('load', () => thumb.classList.add('has-thumb'));
 
-  const youtubeMatch = thumb.dataset.video && thumb.dataset.video.match(/youtube\.com\/embed\/([^?&/]+)/);
-  const youtubeThumbUrl = youtubeMatch ? `https://img.youtube.com/vi/${youtubeMatch[1]}/mqdefault.jpg` : null;
-
   if (thumb.dataset.thumb) {
-    img.addEventListener('error', () => {
-      if (youtubeThumbUrl && img.src !== youtubeThumbUrl) {
-        img.src = youtubeThumbUrl;
-      } else {
-        img.remove();
-      }
-    });
-    img.src = thumb.dataset.thumb;
-    thumb.prepend(img);
-    return;
+    img.addEventListener('error', async () => {
+      const fallback = await autoThumbUrl();
+      if (fallback && fallback !== img.src) img.src = fallback;
+      else img.remove();
+    }, { once: true });
+  } else {
+    img.addEventListener('error', () => img.remove());
   }
 
-  if (!youtubeThumbUrl) return;
-  img.addEventListener('error', () => img.remove());
-  img.src = youtubeThumbUrl;
+  img.src = src;
   thumb.prepend(img);
 });
 
