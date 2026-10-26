@@ -187,7 +187,10 @@ function openLightboxFor(thumb) {
   lightboxTitle.textContent = thumb.dataset.title || '';
   lightboxClient.textContent = thumb.dataset.client || '';
   lightboxClient.hidden = !thumb.dataset.client;
-  lightboxDesc.textContent = thumb.dataset.desc || '';
+  // data-desc-es/-en if the piece has a translated description; data-desc
+  // (English only) as a fallback for pieces that don't yet.
+  const lang = document.documentElement.lang === 'en' ? 'en' : 'es';
+  lightboxDesc.textContent = thumb.dataset[`desc${lang === 'en' ? 'En' : 'Es'}`] || thumb.dataset.desc || '';
 
   const roles = thumb.closest('.grid-item')?.querySelector('.roles');
   lightboxRoles.innerHTML = roles ? roles.innerHTML : '';
